@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/login2back"
+        android:background="@drawable/forgotback"
         tools:context=".presentation.Forgot.Forgot">
 
         <LinearLayout

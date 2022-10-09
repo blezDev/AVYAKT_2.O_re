@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/login_back"
+        android:background="@drawable/login2"
         tools:context=".presentation.otp.OtpActivity">
 
         <ProgressBar
@@ -45,6 +45,7 @@
                 android:textSize="40sp" />
 
             <LinearLayout
+                android:id="@+id/frameout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="80dp"
@@ -58,10 +59,14 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight="6"
+                    android:imeOptions="actionNone"
+                    android:maxLines="1"
                     android:background="@drawable/input_border"
                     android:ems="10"
                     android:maxLength="1"
                     android:inputType="number"
+                    android:gravity="center"
+                    android:textColor="@color/white"
                     android:padding="10dp"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
@@ -74,6 +79,8 @@
                     android:layout_weight="6"
                     android:background="@drawable/input_border"
                     android:ems="10"
+                    android:gravity="center"
+                    android:textColor="@color/white"
                     android:maxLength="1"
                     android:inputType="number"
                     android:padding="10dp"
@@ -90,6 +97,8 @@
                     android:ems="10"
                     android:maxLength="1"
                     android:inputType="number"
+                    android:gravity="center"
+                    android:textColor="@color/white"
                     android:padding="10dp"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
@@ -105,6 +114,8 @@
                     android:maxLength="1"
                     android:inputType="number"
                     android:padding="10dp"
+                    android:gravity="center"
+                    android:textColor="@color/white"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                 <EditText
@@ -119,6 +130,8 @@
                     android:maxLength="1"
                     android:inputType="number"
                     android:padding="10dp"
+                    android:gravity="center"
+                    android:textColor="@color/white"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                 <EditText
@@ -133,6 +146,8 @@
                     android:maxLength="1"
                     android:inputType="number"
                     android:padding="10dp"
+                    android:gravity="center"
+                    android:textColor="@color/white"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
             </LinearLayout>
 

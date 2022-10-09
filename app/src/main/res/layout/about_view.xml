@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         >
 
-        <de.hdodenhof.circleimageview.CircleImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/profileImage"
             android:layout_width="150dp"
             android:layout_height="150dp"
@@ -20,10 +20,12 @@
             android:clickable="true"
             android:layout_margin="6dp"
             android:contentDescription="@string/profile_image"
-            android:src="@drawable/sai"
+            android:src="@drawable/pawn"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:civ_border_color="#FF000000"
+            app:strokeColor="@color/purple"
+            app:strokeWidth="5dp"
+            app:shapeAppearanceOverlay="@style/RoundedSqure"
             app:civ_border_width="2dp" />
 
 
@@ -53,7 +55,7 @@
                 android:layout_height="48dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:background="@color/white"
+                android:background="@color/trans"
                 android:clickable="true"
                 android:contentDescription="@string/github"
                 android:scaleType="fitCenter"
@@ -65,11 +67,11 @@
                 android:layout_height="48dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:background="@color/white"
+                android:background="@color/trans"
                 android:clickable="true"
                 android:contentDescription="@string/instagram"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/instagram" />
+                app:srcCompat="@drawable/insta" />
 
             <ImageButton
                 android:id="@+id/linkedinImg"
@@ -77,11 +79,11 @@
                 android:layout_height="48dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:background="@color/white"
+                android:background="@color/trans"
                 android:clickable="true"
                 android:contentDescription="@string/linkedin"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/linkedin" />
+                app:srcCompat="@drawable/inked" />
         </LinearLayout>
 
         <TextView

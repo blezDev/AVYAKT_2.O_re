@@ -201,7 +201,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
             tools:ignore="SpeakableTextPresentCheck"
-            tools:listitem="@layout/reg_model_re" />
+            tools:listitem="@layout/reg_model" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

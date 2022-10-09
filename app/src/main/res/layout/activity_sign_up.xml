@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/register_back"
+    android:background="@drawable/regbacks"
     tools:context=".presentation.signup.SignUp">
 
     <LinearLayout
@@ -36,12 +36,23 @@
             android:textColor="@color/white"
             android:textSize="16sp" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/aldrich"
+            android:gravity="center"
+            android:text="AVYAKT 2.0"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+
         <EditText
             android:id="@+id/etName"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="40dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="50dp"
             android:layout_marginRight="40dp"
             android:background="@drawable/input_border"
             android:ems="10"
@@ -107,19 +118,15 @@
             android:paddingLeft="20dp"
             android:textColorHint="@color/white" />
 
-        <EditText
-            android:id="@+id/etYear"
+        <Spinner
+            android:id="@+id/yearop"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="40dp"
-            android:layout_marginTop="20dp"
             android:layout_marginRight="40dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/input_border"
-            android:ems="10"
-            android:hint=" Year i.e 1st year"
-            android:inputType="text"
-            android:paddingLeft="20dp"
-            android:textColorHint="@color/white" />
+            />
 
         <Button
             android:id="@+id/btnSignup"
@@ -127,7 +134,7 @@
             android:layout_height="38dp"
 
             android:layout_marginTop="20dp"
-           android:layout_gravity="center_horizontal"
+            android:layout_gravity="center_horizontal"
             android:gravity="center"
             android:background="@drawable/signup_btn"
             android:text="signup"

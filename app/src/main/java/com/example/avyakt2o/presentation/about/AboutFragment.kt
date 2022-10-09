@@ -22,8 +22,6 @@ class AboutFragment : Fragment() {
     private lateinit var aboutAdapterBackend : AboutAdapter
 
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,7 +33,7 @@ class AboutFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val details = listOf<PersonDetails>( PersonDetails(R.drawable.pawn,"Pawn Sharma\n Core Team","!false\n" +"(It’s funny because it’s true.)","https://github.com/Pawansharma08","https://instagram.com/mr.sharma__ji_?igshid=YmMyMTA2M2Y=","https://www.linkedin.com/in/pawan-sharma-978ba3204/"),
+        val details = listOf<PersonDetails>( PersonDetails(R.drawable.pawn,"Pawan Ku. Sharma\n Core Team","!false\n" +"(It’s funny because it’s true.)","https://github.com/Pawansharma08","https://instagram.com/mr.sharma__ji_?igshid=YmMyMTA2M2Y=","https://www.linkedin.com/in/pawan-sharma-978ba3204/"),
             PersonDetails(R.drawable.sai,"M Saikrishna Pattnaik \n Core Team","“Debugging” is like being the detective in a crime drama where you are also the murderer.","https://github.com/blezDev","https://www.instagram.com/kaiju837/?r=nametag","https://www.linkedin.com/in/m-saikrishna-pattnaik-261013211"))
         val backendDetails = listOf(PersonDetails(R.drawable.ayush,"Ayush Sharma \n Backend","//be nice to the CPU\n" +
                 "Thread_sleep(1);","https://github.com/This-is-Ayush-Sharma","https://www.instagram.com/_ayush.aj/","https://www.linkedin.com/in/ayush-sharma-551133213/"))
@@ -81,8 +79,6 @@ class AboutFragment : Fragment() {
                     startActivity(intent)
                 }
             }
-
         }
     }
-
 }

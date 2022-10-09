@@ -3,6 +3,7 @@ package com.example.avyakt2o.presentation.signup
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.util.Patterns
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -29,7 +30,7 @@ class SignUp : AppCompatActivity() {
     private lateinit var etPassword : EditText
     private lateinit var etLogin : TextView
     private lateinit var etPhone : EditText
-    private lateinit var etYear : EditText
+    private lateinit var etYear : Spinner
     private lateinit var btnSignup : Button
     private lateinit var loginViewModel : LoginViewModel
     private lateinit var tokenManager: TokenManager
@@ -50,10 +51,9 @@ class SignUp : AppCompatActivity() {
         etLogin = findViewById(R.id.etLogin)
         btnSignup = findViewById(R.id.btnSignup)
         etPhone = findViewById(R.id.etPhone)
-        etYear = findViewById(R.id.etYear)
+        etYear = findViewById(R.id.yearop) as Spinner
         regProgressBar = findViewById(R.id.regProgressBar)
         regProgressBar.visibility = View.INVISIBLE
-
 
 
         etLogin.setOnClickListener {
@@ -64,7 +64,7 @@ class SignUp : AppCompatActivity() {
 
         btnSignup.setOnClickListener {
 
-           if(etEmail.text.isNotEmpty()&&etName.text.isNotEmpty()&&etRollnumber.text.isNotEmpty()&&etPassword.text.isNotEmpty()&&etPhone.text.isNotEmpty()&&etYear.text.isNotEmpty()){
+           if(etEmail.text.isNotEmpty()&&etName.text.isNotEmpty()&&etRollnumber.text.isNotEmpty()&&etPassword.text.isNotEmpty()&&etPhone.text.isNotEmpty()){
                regProgressBar.visibility = View.VISIBLE
                loginViewModel.retService.registerUser(Register(
                    email = etEmail.text.toString().trim(),
@@ -72,7 +72,7 @@ class SignUp : AppCompatActivity() {
                    name = etName.text.toString(),
                    roll = etRollnumber .text.toString().trim(),
                    number = etPhone.text.toString().trim(),
-                   year = etYear.text.toString()
+                   year = etYear.toString()
 
                )
                ).enqueue(object :Callback<RegisterStatus>{
@@ -110,6 +110,21 @@ class SignUp : AppCompatActivity() {
                .show()
            }
         }
+
+        var options = arrayOf("1st Year" , "2nd Year","3rd Year")
+
+
+         etYear.adapter = ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,options)
+
+        etYear.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                TODO("Not yet implemented")
+            }
+        }
     }
 
 
@@ -121,5 +136,22 @@ class SignUp : AppCompatActivity() {
 
     }
 
+    private fun validEmail(Email:EditText): String? {
+        val simpleInput: String = Email.text.toString()
 
+        if (!Patterns.EMAIL_ADDRESS.matcher(simpleInput).matches()) {
+            return "Invalid Email Address"
+        }
+        return null
+    }
+    }
+/*
+private fun validEmail(Email:EditText): String? {
+    val simpleInput: String = Email.text.toString()
+
+    if (!Patterns.EMAIL_ADDRESS.matcher(simpleInput).matches()) {
+        return "Invalid Email Address"
+    }
+    return null
 }
+ */

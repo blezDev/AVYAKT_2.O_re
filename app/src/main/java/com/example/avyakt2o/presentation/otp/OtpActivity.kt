@@ -1,11 +1,16 @@
 package com.example.avyakt2o.presentation.otp
 
 import android.content.Intent
+import android.hardware.input.InputManager
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import cn.pedant.SweetAlert.SweetAlertDialog
@@ -31,12 +36,33 @@ class OtpActivity : AppCompatActivity() {
     private lateinit var tokenManager: TokenManager
     private lateinit var binding: ActivityOtpBinding
     private lateinit var loginViewModel: LoginViewModel
+    private lateinit var frameout : LinearLayout
+
+
+    private lateinit var otp1 :EditText
+    private lateinit var otp2 :EditText
+    private lateinit var otp3 :EditText
+    private lateinit var otp4 :EditText
+    private lateinit var otp5 :EditText
+    private lateinit var otp6 :EditText
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         loginViewModel = ViewModelProvider(this)[LoginViewModel::class.java]
         binding = DataBindingUtil.setContentView(this,R.layout.activity_otp)
         tokenManager= TokenManager(applicationContext)
         binding.otpProgess.visibility = View.INVISIBLE
+
+        frameout = findViewById(R.id.frameout)
+
+        otp1 = findViewById(R.id.otp1)
+        otp2 = findViewById(R.id.otp2)
+        otp3 = findViewById(R.id.otp3)
+        otp4 = findViewById(R.id.otp4)
+        otp5 = findViewById(R.id.otp5)
+        otp6 = findViewById(R.id.otp6)
+
+
+        setListner()
 
         when(intent.getStringExtra(CONTEXT)){
             "FORGET"->{
@@ -235,5 +261,44 @@ class OtpActivity : AppCompatActivity() {
         val intent = Intent(this, SignUp::class.java)
         startActivity(intent)
         finish()
+    }
+
+    private fun setTextChange(fromEditText:EditText, targetEditText: EditText? = null, done:(() -> Unit)? = null)
+    {
+        fromEditText.addTextChangedListener {
+            it?.let {
+                string ->
+                if(string.isNotEmpty()){
+                    targetEditText?.let{  editText ->
+
+                        editText.isEnabled = true
+                        editText.requestFocus()
+                    }?: run{
+                        done ?.let{ done ->
+                            done()
+                        }
+                    }
+                    fromEditText.clearFocus()
+                    fromEditText.isEnabled = false
+                }
+            }
+        }
+    }
+
+    private fun setListner(){
+        frameout.setOnClickListener {
+            val inputManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+            inputManager.hideSoftInputFromWindow(frameout.windowToken,0)
+        }
+
+        setTextChange(fromEditText = otp1, targetEditText = otp2)
+        setTextChange(fromEditText = otp2, targetEditText = otp3)
+        setTextChange(fromEditText = otp3, targetEditText = otp4)
+        setTextChange(fromEditText = otp4, targetEditText = otp5)
+        setTextChange(fromEditText = otp5, targetEditText = otp6)
+        setTextChange(fromEditText = otp6, done={
+            getOTP()
+        })
+
     }
 }

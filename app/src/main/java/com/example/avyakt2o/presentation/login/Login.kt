@@ -73,6 +73,7 @@ class Login : AppCompatActivity() {
                             call: Call<LoginStatus>,
                             response: Response<LoginStatus>
                         ) {
+                            Log.e("TAG",response.body()?.message.toString())
                             logProgressBar.visibility = View.INVISIBLE
                             when (response.body()?.message) {
                                 "User Doesn't exist." -> {

@@ -43,6 +43,8 @@ class HostActivity : AppCompatActivity() {
               R.id.homeFragment ->
               {
                  navController?.navigate(R.id.homeFragment)
+
+
               }
                 R.id.galeryFragment ->
                 {

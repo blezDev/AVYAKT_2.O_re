@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profileImage"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:layout_margin="6dp"
+            android:contentDescription="@string/profile_image"
+            android:src="@drawable/sai"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="2dp" />
+
+
+        <TextView
+            android:id="@+id/descriptionText"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/profileImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/profileImage"
+            app:layout_constraintTop_toTopOf="@+id/profileImage"
+            tools:text="TextView" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/NameText">
+
+            <ImageButton
+                android:id="@+id/githubImg"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:clickable="true"
+                android:contentDescription="@string/github"
+                android:scaleType="fitCenter"
+                android:src="@drawable/github" />
+
+            <ImageButton
+                android:id="@+id/instagramImg"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:clickable="true"
+                android:contentDescription="@string/instagram"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/instagram" />
+
+            <ImageButton
+                android:id="@+id/linkedinImg"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:clickable="true"
+                android:contentDescription="@string/linkedin"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/linkedin" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/NameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="TextView"
+            android:gravity="center"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/profileImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profileImage" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">AVYAKT 2.o</string>
+    <string name="close">Close</string>
+    <string name="open">Open</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="sliderText">ACCESSIBLE EPISODE</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="profile_image">profile_image</string>
+    <string name="next_button">Next Button</string>
+    <string name="github">Github</string>
+    <string name="linkedin">Linkedin</string>
+    <string name="instagram">Instagram</string>
+    <string name="event_poster">Event Poster</string>
+    <string name="phone_number">Phone Number :</string>
+    <string name="event_coodinator">Event Coodinator :</string>
+    <string name="register_now">Register Now</string>
+    <string name="name">Name</string>
+    <string name="add_form">Add Form </string>
+
+    <string name="instruction_SOLO">  <b>!!! INSTRUCTIONS !!!</b>\n\n
+
+    ->	Enter the Details of ONE member FIRST and click on verify.\n\n
+
+    ->	Click on + button to add the details for another member.\n\n
+
+    ->	Double CHECK The Details Before Clicking |VERIFY| Button.\n\n
+
+    ->  AFTER VERIFIED, Click Submit Button.\n\n
+    ->  Leave Team Name as  IT IS  if going  || FOR SOLO ||.\n
+</string>
+
+    <string name="instruction_TEAM">  <b>!!! INSTRUCTIONS !!!</b>\n\n
+
+    ->	Enter the Details of ONE member FIRST and click on verify.\n\n
+
+    ->	Click on + button to add the details for another member.\n\n
+
+    ->	Double CHECK The Details Before Clicking |VERIFY| Button.\n\n
+
+    ->  AFTER VERIFIED, Click Submit Button.\n\n
+</string>
+
+</resources>

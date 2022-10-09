@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/login_back"
+        tools:context=".presentation.otp.OtpActivity">
+
+        <ProgressBar
+            android:id="@+id/otpProgess"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/back_col"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:fontFamily="@font/aldrich"
+                android:gravity="center_horizontal"
+                android:text="Verify Otp"
+                android:textColor="@color/white"
+                android:textSize="40sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:orientation="horizontal">
+
+
+                <EditText
+                    android:id="@+id/otp1"
+                    android:layout_width="48dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="6"
+                    android:background="@drawable/input_border"
+                    android:ems="10"
+                    android:maxLength="1"
+                    android:inputType="number"
+                    android:padding="10dp"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                <EditText
+                    android:id="@+id/otp2"
+                    android:layout_width="48dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="6"
+                    android:background="@drawable/input_border"
+                    android:ems="10"
+                    android:maxLength="1"
+                    android:inputType="number"
+                    android:padding="10dp"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                <EditText
+                    android:id="@+id/otp3"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="6"
+                    android:background="@drawable/input_border"
+                    android:ems="10"
+                    android:maxLength="1"
+                    android:inputType="number"
+                    android:padding="10dp"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                <EditText
+                    android:id="@+id/otp4"
+                    android:layout_width="48dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="6"
+                    android:background="@drawable/input_border"
+                    android:ems="10"
+                    android:maxLength="1"
+                    android:inputType="number"
+                    android:padding="10dp"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                <EditText
+                    android:id="@+id/otp5"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="6"
+                    android:background="@drawable/input_border"
+                    android:ems="10"
+                    android:maxLength="1"
+                    android:inputType="number"
+                    android:padding="10dp"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                <EditText
+                    android:id="@+id/otp6"
+                    android:layout_width="48dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="6"
+                    android:background="@drawable/input_border"
+                    android:ems="10"
+                    android:maxLength="1"
+                    android:inputType="number"
+                    android:padding="10dp"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+            </LinearLayout>
+
+            <com.skydoves.elasticviews.ElasticButton
+                android:id="@+id/btnVerify"
+                android:layout_width="wrap_content"
+
+
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="160dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="160dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                app:button_duration="200"
+                app:button_scale="0.87"
+                app:button_cornerRadius="4dp"
+                android:background="@drawable/login_btn"
+                android:text="Verify"
+                android:textColor="@color/white"
+                tools:ignore="TouchTargetSizeCheck" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="500dp"
+    android:background="@drawable/circular_curve"
+    android:padding="10dp"
+    android:layout_marginTop="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/trans"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/aldrich"
+            android:text="Members"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/memberName"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/trans"
+            android:ems="10"
+            android:hint="Name"
+            android:textColor="@color/white"
+            android:inputType="textPersonName"
+            android:paddingLeft="20dp"
+            android:textColorHint="@color/glass_purple" />
+
+        <EditText
+            android:id="@+id/memberRoll"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="200dp"
+            android:background="@color/trans"
+            android:ems="10"
+            android:hint="Roll No."
+            android:textColor="@color/white"
+            android:inputType="textPersonName"
+            android:paddingLeft="20dp"
+            android:textColorHint="@color/glass_purple" />
+
+        <EditText
+            android:id="@+id/memberEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/trans"
+            android:ems="10"
+            android:textColor="@color/white"
+            android:hint="Officail Mail"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            android:paddingLeft="20dp"
+            android:textColorHint="@color/glass_purple" />
+
+        <EditText
+            android:id="@+id/teamName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/trans"
+            android:ems="10"
+            android:hint="Team Name"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:textColor="@color/white"
+            android:paddingLeft="20dp"
+            android:textColorHint="@color/glass_purple" />
+
+        <EditText
+            android:id="@+id/memberPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/trans"
+            android:ems="10"
+            android:textColor="@color/white"
+            android:hint="Phone Number"
+            android:inputType="phone"
+            android:minHeight="48dp"
+            android:paddingLeft="20dp"
+            android:textColorHint="@color/glass_purple" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+           android:layout_gravity="center_horizontal"
+            android:background="@drawable/formbtn">
+
+            <Button
+                android:id="@+id/btn_Verify"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:layout_gravity="center_horizontal"
+                android:text="Verify"
+                android:textColor="@color/glass_purple" />
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

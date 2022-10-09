@@ -64,8 +64,23 @@ class AboutFragment : Fragment() {
 
 
 
+
             BackendRecyclerView.adapter = aboutAdapterBackend
             BackendRecyclerView.layoutManager = GridLayoutManager(requireContext(),1,GridLayoutManager.HORIZONTAL,false)
+            aboutAdapterBackend.apply {
+                onItemClickGithub = {
+                    val intent = Intent(Intent.ACTION_VIEW,Uri.parse(it.github))
+                    startActivity(intent)
+                }
+                onItemClickInstagram = {
+                    val intent = Intent(Intent.ACTION_VIEW,Uri.parse(it.instagram))
+                    startActivity(intent)
+                }
+                onItemClickLinkedin = {
+                    val intent = Intent(Intent.ACTION_VIEW,Uri.parse(it.linkedin))
+                    startActivity(intent)
+                }
+            }
 
         }
     }

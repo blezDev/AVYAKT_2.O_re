@@ -56,6 +56,7 @@ class SignUp : AppCompatActivity() {
         regProgressBar.visibility = View.INVISIBLE
 
 
+
         etLogin.setOnClickListener {
             val intent = Intent(this,Login::class.java)
             startActivity(intent)
@@ -63,20 +64,20 @@ class SignUp : AppCompatActivity() {
         }
 
         btnSignup.setOnClickListener {
-         /* val register =   Register(
-                email = etEmail.text.toString().trim(),
-                password = etPassword.text.toString(),
-                name = etName.text.toString(),
-                roll = etRollnumber .text.toString().trim(),
-                number = etPhone.text.toString().trim(),
-                year = etYear.toString()
 
-            )*/
-            Log.e("TAG",etYear.toString())
+            Log.e("TAG",etYear.selectedItem.toString())
 
-          /* if(etEmail.text.isNotEmpty()&&etName.text.isNotEmpty()&&etRollnumber.text.isNotEmpty()&&etPassword.text.isNotEmpty()&&etPhone.text.isNotEmpty()){
+           if(etEmail.text.isNotEmpty()&&etName.text.isNotEmpty()&&etRollnumber.text.isNotEmpty()&&etPassword.text.isNotEmpty()&&etPhone.text.isNotEmpty()){
                regProgressBar.visibility = View.VISIBLE
-               loginViewModel.retService.registerUser(
+               loginViewModel.retService.registerUser( Register(
+                   email = etEmail.text.toString().trim(),
+                   password = etPassword.text.toString(),
+                   name = etName.text.toString(),
+                   roll = etRollnumber .text.toString().trim(),
+                   number = etPhone.text.toString().trim(),
+                   year = etYear.selectedItem.toString()
+
+               )
                ).enqueue(object :Callback<RegisterStatus>{
                    override fun onResponse(
                        call: Call<RegisterStatus>,
@@ -110,7 +111,7 @@ class SignUp : AppCompatActivity() {
                .setTitleText("!!HEY!!")
                .setContentText("All fields must be Filled!")
                .show()
-           }*/
+           }
         }
 
         var options = arrayOf("1st Year","2nd Year","3rd Year")
@@ -119,7 +120,7 @@ class SignUp : AppCompatActivity() {
 
         etYear.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                 //   return options
+
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {

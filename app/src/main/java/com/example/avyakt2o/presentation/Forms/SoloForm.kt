@@ -132,7 +132,7 @@ class SoloForm : AppCompatActivity() {
                     400-> {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("!!😰!!")
-                            .setContentText(response.body()?.message.toString())
+                            .setContentText("Team name already exist!.")
                             .show()
                     }
                     500-> {
@@ -172,7 +172,7 @@ class SoloForm : AppCompatActivity() {
                     400-> {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("!!😰!!")
-                            .setContentText(response.body()?.message.toString())
+                            .setContentText("Team name already exist!.")
                             .show()
                     }
                     500-> {
@@ -212,7 +212,7 @@ class SoloForm : AppCompatActivity() {
                     400-> {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("!!😰!!")
-                            .setContentText(response.body()?.message.toString())
+                            .setContentText("Team name already exist!.")
                             .show()
                     }
                     500-> {
@@ -250,7 +250,7 @@ class SoloForm : AppCompatActivity() {
                     400-> {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("!!😰!!")
-                            .setContentText(response.body()?.message.toString())
+                            .setContentText("Team name already exist!.")
                             .show()
                     }
                     500-> {
@@ -288,7 +288,7 @@ class SoloForm : AppCompatActivity() {
                     400-> {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("!!😰!!")
-                            .setContentText(response.body()?.message.toString())
+                            .setContentText("Team name already exist!.")
                             .show()
                     }
                     500-> {
@@ -325,7 +325,7 @@ class SoloForm : AppCompatActivity() {
                     400-> {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("!!😰!!")
-                            .setContentText(response.body()?.message.toString())
+                            .setContentText("Team name already exist!.")
                             .show()
                     }
                     500-> {
@@ -362,7 +362,7 @@ class SoloForm : AppCompatActivity() {
                     400-> {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("!!😰!!")
-                            .setContentText(response.body()?.message.toString())
+                            .setContentText("Team name already exist!.")
                             .show()
                     }
                     500-> {
@@ -399,7 +399,7 @@ class SoloForm : AppCompatActivity() {
                     400-> {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("!!😰!!")
-                            .setContentText(response.body()?.message.toString())
+                            .setContentText("Team name already exist!.")
                             .show()
                     }
                     500-> {
@@ -435,7 +435,7 @@ class SoloForm : AppCompatActivity() {
                     400-> {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("!!😰!!")
-                            .setContentText(response.body()?.message.toString())
+                            .setContentText("Team name already exist!.")
                             .show()
                     }
                     500-> {
@@ -472,7 +472,7 @@ class SoloForm : AppCompatActivity() {
                     400-> {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("!!😰!!")
-                            .setContentText(response.body()?.message.toString())
+                            .setContentText("Team name already exist!.")
                             .show()
                     }
                     500-> {
@@ -510,7 +510,7 @@ class SoloForm : AppCompatActivity() {
                     400-> {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("!!😰!!")
-                            .setContentText(response.body()?.message.toString())
+                            .setContentText("Team name already exist!.")
                             .show()
                     }
                     500-> {
@@ -548,7 +548,7 @@ class SoloForm : AppCompatActivity() {
                     400-> {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("!!😰!!")
-                            .setContentText(response.body()?.message.toString())
+                            .setContentText("Team name already exist!.")
                             .show()
                     }
                     500-> {
@@ -586,7 +586,7 @@ class SoloForm : AppCompatActivity() {
                     400-> {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("!!😰!!")
-                            .setContentText(response.body()?.message.toString())
+                            .setContentText("Team name already exist!.")
                             .show()
                     }
                     500-> {
@@ -624,7 +624,7 @@ class SoloForm : AppCompatActivity() {
                     400-> {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("!!😰!!")
-                            .setContentText(response.body()?.message.toString())
+                            .setContentText("Team name already exist!.")
                             .show()
                     }
                     500-> {
@@ -662,7 +662,7 @@ class SoloForm : AppCompatActivity() {
                     400-> {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("!!😰!!")
-                            .setContentText(response.body()?.message.toString())
+                            .setContentText("Team name already exist!.")
                             .show()
                     }
                     500-> {
@@ -700,7 +700,7 @@ class SoloForm : AppCompatActivity() {
                     400-> {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("!!😰!!")
-                            .setContentText(response.body()?.message.toString())
+                            .setContentText("Team name already exist!.")
                             .show()
                     }
                     500-> {
@@ -738,7 +738,7 @@ class SoloForm : AppCompatActivity() {
                     400-> {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("!!😰!!")
-                            .setContentText(response.body()?.message.toString())
+                            .setContentText("Team name already exist!.")
                             .show()
                     }
                     500-> {
@@ -775,7 +775,7 @@ class SoloForm : AppCompatActivity() {
                     400-> {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("!!😰!!")
-                            .setContentText(response.body()?.message.toString())
+                            .setContentText("Team name already exist!.")
                             .show()
                     }
                     500-> {
@@ -813,7 +813,7 @@ class SoloForm : AppCompatActivity() {
                     400-> {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("!!😰!!")
-                            .setContentText(response.body()?.message.toString())
+                            .setContentText("Team name already exist!.")
                             .show()
                     }
                     500-> {
@@ -851,7 +851,7 @@ class SoloForm : AppCompatActivity() {
                     400-> {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("!!😰!!")
-                            .setContentText(response.body()?.message.toString())
+                            .setContentText("Team name already exist!.")
                             .show()
                     }
                     500-> {
@@ -889,7 +889,7 @@ class SoloForm : AppCompatActivity() {
                     400-> {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("!!😰!!")
-                            .setContentText(response.body()?.message.toString())
+                            .setContentText("Team name already exist!.")
                             .show()
                     }
                     500-> {
@@ -926,7 +926,7 @@ class SoloForm : AppCompatActivity() {
                     400-> {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("!!😰!!")
-                            .setContentText(response.body()?.message.toString())
+                            .setContentText("Team name already exist!.")
                             .show()
                     }
                     500-> {
@@ -964,7 +964,7 @@ class SoloForm : AppCompatActivity() {
                     400-> {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("!!😰!!")
-                            .setContentText(response.body()?.message.toString())
+                            .setContentText("Team name already exist!.")
                             .show()
                     }
                     500-> {
@@ -1001,7 +1001,7 @@ class SoloForm : AppCompatActivity() {
                     400-> {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("!!😰!!")
-                            .setContentText(response.body()?.message.toString())
+                            .setContentText("Team name already exist!.")
                             .show()
                     }
                     500-> {
@@ -1038,7 +1038,7 @@ class SoloForm : AppCompatActivity() {
                     400-> {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("!!😰!!")
-                            .setContentText(response.body()?.message.toString())
+                            .setContentText("Team name already exist!.")
                             .show()
                     }
                     500-> {
@@ -1075,7 +1075,7 @@ class SoloForm : AppCompatActivity() {
                     400-> {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("!!😰!!")
-                            .setContentText(response.body()?.message.toString())
+                            .setContentText("Team name already exist!.")
                             .show()
                     }
                     500-> {
@@ -1112,7 +1112,7 @@ class SoloForm : AppCompatActivity() {
                     400-> {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("!!😰!!")
-                            .setContentText(response.body()?.message.toString())
+                            .setContentText("Team name already exist!.")
                             .show()
                     }
                     500-> {
@@ -1149,7 +1149,7 @@ class SoloForm : AppCompatActivity() {
                     400-> {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("!!😰!!")
-                            .setContentText(response.body()?.message.toString())
+                            .setContentText("Team name already exist!.")
                             .show()
                     }
                     500-> {
@@ -1186,7 +1186,7 @@ class SoloForm : AppCompatActivity() {
                     400-> {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("!!😰!!")
-                            .setContentText(response.body()?.message.toString())
+                            .setContentText("Team name already exist!.")
                             .show()
                     }
                     500-> {
@@ -1225,7 +1225,7 @@ class SoloForm : AppCompatActivity() {
                     400-> {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("!!😰!!")
-                            .setContentText(response.body()?.message.toString())
+                            .setContentText("Team name already exist!.")
                             .show()
                     }
                     500-> {
@@ -1266,7 +1266,7 @@ class SoloForm : AppCompatActivity() {
                     400-> {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("!!😰!!")
-                            .setContentText(response.body()?.message.toString())
+                            .setContentText("Team name already exist!.")
                             .show()
                     }
                     500-> {

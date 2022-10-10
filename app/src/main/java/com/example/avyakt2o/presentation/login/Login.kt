@@ -83,6 +83,7 @@ class Login : AppCompatActivity() {
                                 }
                                 "User Account is not active." -> {
                                     tokenManager = TokenManager(applicationContext)
+                                    Toast.makeText(this@Login,response.body()?.message.toString(),Toast.LENGTH_LONG).show()
                                     tokenManager.saveEmail(etEmail.text.toString().trim())
                                     goToOtp()
                                 }

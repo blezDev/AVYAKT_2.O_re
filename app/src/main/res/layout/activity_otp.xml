@@ -111,6 +111,7 @@
                     android:layout_weight="6"
                     android:background="@drawable/input_border"
                     android:ems="10"
+
                     android:maxLength="1"
                     android:inputType="number"
                     android:padding="10dp"

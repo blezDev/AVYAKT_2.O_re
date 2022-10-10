@@ -75,27 +75,26 @@ class Login : AppCompatActivity() {
                         ) {
                             Log.e("TAG",response.body()?.message.toString())
                             logProgressBar.visibility = View.INVISIBLE
-                            when (response.body()?.message) {
-                                "User Doesn't exist." -> {
-                                    Toast.makeText(this@Login,response.body()?.message.toString(),Toast.LENGTH_LONG).show()
+                            when (response.code()) {
+                                404 -> {
+                                    Toast.makeText(this@Login,"User does not exist. \n Please create a account",Toast.LENGTH_LONG).show()
                                     val intent = Intent(this@Login,SignUp::class.java)
                                     startActivity(intent)
                                 }
-                                "User Account is not active." -> {
+                                400 -> {
                                     tokenManager = TokenManager(applicationContext)
                                     Toast.makeText(this@Login,response.body()?.message.toString(),Toast.LENGTH_LONG).show()
                                     tokenManager.saveEmail(etEmail.text.toString().trim())
                                     goToOtp()
                                 }
-                                null ->
+                                401 ->
                                 {
                                     SweetAlertDialog(this@Login,SweetAlertDialog.WARNING_TYPE)
-
                                         .setTitleText("!!OPPS!!")
-                                        .setContentText("Wrong Credentials")
+                                        .setContentText("INVALID CREDENTIAL")
                                         .show()
                                 }
-                                else -> {
+                                200 -> {
                                     tokenManager = TokenManager(applicationContext)
                                     tokenManager.saveToken(response.body()?.token!!)
                                     tokenManager.saveEmail(etEmail.text.toString())

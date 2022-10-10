@@ -290,7 +290,6 @@ class OtpActivity : AppCompatActivity() {
             val inputManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
             inputManager.hideSoftInputFromWindow(frameout.windowToken,0)
         }
-
         setTextChange(fromEditText = otp1, targetEditText = otp2)
         setTextChange(fromEditText = otp2, targetEditText = otp3)
         setTextChange(fromEditText = otp3, targetEditText = otp4)

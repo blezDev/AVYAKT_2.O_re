@@ -96,7 +96,7 @@ class TeamForm : AppCompatActivity() {
 
 
      binding.SubmitFormBtn.setOnClickListener {
-            if(binding.Name1.text.isEmpty()){
+            if(binding.Name1.text.isNullOrBlank() && binding.email1.text.isNullOrBlank() && binding.phone1.text.isNullOrBlank() && binding.roll1.text.isNullOrBlank() ) {
                 SweetAlertDialog(this,SweetAlertDialog.WARNING_TYPE)
                     .setTitleText("WARNING!!")
                     .setContentText("FILL OUT DETAILS")

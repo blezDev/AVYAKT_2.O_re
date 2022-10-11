@@ -70,21 +70,7 @@
             android:paddingLeft="20dp"
             android:textColorHint="@color/glass_purple" />
 
-        <EditText
-            android:id="@+id/teamName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@color/trans"
-            android:ems="10"
-            android:hint="Team Name"
-            android:inputType="textPersonName"
-            android:minHeight="48dp"
-            android:textColor="@color/white"
-            android:paddingLeft="20dp"
-            android:textColorHint="@color/glass_purple" />
+
 
         <EditText
             android:id="@+id/memberPhone"

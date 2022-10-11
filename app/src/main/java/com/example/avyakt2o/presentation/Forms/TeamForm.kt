@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,6 +16,7 @@ import com.example.avyakt2o.Adapter.TeamFormAdapter
 import com.example.avyakt2o.R
 import com.example.avyakt2o.data.Entries
 import com.example.avyakt2o.data.EntriesStatus
+import com.example.avyakt2o.databinding.ActivityTeamFormBinding
 import com.example.avyakt2o.presentation.HostActivity
 import com.example.avyakt2o.utils.Constants
 import com.example.avyakt2o.utils.Constants.MAXSIZE
@@ -31,14 +33,16 @@ class TeamForm : AppCompatActivity() {
     private lateinit var FormReg : ArrayList<com.example.avyakt2o.data.TeamForm>
     private lateinit var regFormAdapter : TeamFormAdapter
     private lateinit var addCard : ImageView
-    private lateinit var SubmitFormBtn : Button
+
     private lateinit var formViewModel: FormViewModel
     private lateinit var tokenManager: TokenManager
     private lateinit var instructionBrn : Button
+    private lateinit var binding : ActivityTeamFormBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_team_form)
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_team_form)
+
         val list = listOf("Song","Dance","Mono Acting/Mimicry","Drama (Based on Short story 10 mins)")
 
         val MIN_SIZE = intent.getIntExtra(MINSIZE,1) - 1
@@ -55,23 +59,20 @@ class TeamForm : AppCompatActivity() {
         var count = 0
 
         addCard = findViewById(R.id.AddForm)
-        SubmitFormBtn = findViewById(R.id.SubmitFormBtn)
+
         instructionBrn = findViewById(R.id.instructionBrn_TEAM)
         FormRecycle = findViewById(R.id.TeamRecycle)
         FormRecycle.layoutManager = LinearLayoutManager(this)
         tokenManager = TokenManager(applicationContext)
         val token = tokenManager.getToken()!!
-        var teamCheck = 0
         FormReg = ArrayList()
 
-
-
-        if( EventType in list)
+     /*   if( EventType in list)
         {
             getAlertSolo()
         }
         else
-            getAlertTeam()
+            getAlertTeam()*/
 
         instructionBrn.setOnClickListener {
             if( EventType in list)
@@ -85,51 +86,44 @@ class TeamForm : AppCompatActivity() {
         FormRecycle.adapter = regFormAdapter
         regFormAdapter.onItemClick =
         {
-
                 val name = it.name
-                val  rollno = it.roll.trim()
-                val teamName = it.teamName
+                val rollno = it.roll.trim()
                 val email = it.mail
                 val phone  = it.phone.trim()
                 nameList.add(name)
                 rollnoList.add(rollno)
                 emailList.add(email)
                 phoneList.add(phone)
-                teamNameList.add(teamName)
             count+=1
 
         }
 
 
-        SubmitFormBtn.setOnClickListener {
-            if(count ==0){
+     binding.SubmitFormBtn.setOnClickListener {
+            if(binding.Name1.text.isEmpty()){
                 SweetAlertDialog(this,SweetAlertDialog.WARNING_TYPE)
                     .setTitleText("WARNING!!")
                     .setContentText("FILL OUT DETAILS")
                     .show()
             }else
             {
-                val entryDetails : Entries? = getEntry(eventType = EventType,token,nameList,emailList,rollnoList,teamNameList,EventName,phoneList)
-                if (entryDetails == null)
-                {
-                    SweetAlertDialog(this@TeamForm,SweetAlertDialog.WARNING_TYPE)
-                        .setTitleText("WARNING!!")
-                        .setContentText("Correctly fill the details.!!")
-                        .setConfirmClickListener { reload()}
-                        .show()
-                    Log.e("TAG","null entires")
-                }
-                else
-                {
+                nameList.add(binding.Name1.text.toString())
+                rollnoList.add(binding.roll1.text.toString())
+                emailList.add(binding.email1.text.toString())
+                phoneList.add(binding.phone1.text.toString())
+              /*  val entry = getEntry(nameList,emailList,rollnoList,binding.teamName1.text.toString(),EventName,phoneList)*/
 
-                    Log.e("TAG","register block" + entryDetails.toString())
 
-                 /*   register(entryDetails,EventType)*/
-                }
+                Log.e("TAG","HI THERE REGISTER BLOCK")
+
+
+
 
             }
 
         }
+
+
         addCard.setOnClickListener {
             if(FormReg.size > MAX_SIZE)
             {
@@ -140,80 +134,28 @@ class TeamForm : AppCompatActivity() {
             }
             else
             {
-               when(teamCheck)
-               {
-                   0 -> addNewItem(0,com.example.avyakt2o.data.TeamForm("Name","Roll Number","Email","Team Name","Phone Number"))
-                   else -> addNewItem(0,com.example.avyakt2o.data.TeamForm("Name","Roll Number","Email",teamNameList[0].toString(),"Phone Number"))
-               }
+              addNewItem(0,com.example.avyakt2o.data.TeamForm("Name","Email","Official Mail","Phone Number"))
             }
         }
 
     }
 
 
-
-
-    private fun getEntry(
-        eventType: String,
-        token: String,
+   /* private fun getEntry(
         nameList: ArrayList<String>,
         emailList: ArrayList<String>,
         rollnoList: ArrayList<String>,
-        teamNameList: ArrayList<String>,
+        teamString: String,
         EventName: String,
         phoneList: ArrayList<String>
-    ): Entries? {
-
-        if(teamNameList.distinct()[0].isBlank()){
-
-            if (teamNameList.distinct().size > 1 || nameList.size > 1)
-            {
-                return null
-            }
-            else
-            {
-                val entry = Entries(
-                    token = token,
-                    name = nameList.distinct(),
-                    email = emailList.distinct(),
-                    rollno = rollnoList.distinct(),
-                    teamName = null,
-                    eventName = EventName,
-                    phone = phoneList.distinct(),
-                    type = "SOLO"
-
-                )
-                return entry
-            }
-        }
-
-        else
-        {
-            if(FormReg.size == 1)
-            {
-                SweetAlertDialog(this@TeamForm,SweetAlertDialog.WARNING_TYPE)
-                    .setTitleText("WARNING!!")
-                    .setContentText("Read out Instructions!!.")
-                    .setConfirmClickListener { this.recreate() }
-                    .show()
-                return null
-            }
-            val entry = Entries(
-                token = token,
-                name = nameList.distinct(),
-                email = emailList.distinct(),
-                rollno = rollnoList.distinct(),
-                teamName = teamNameList[0],
-                eventName = EventName,
-                phone = phoneList.distinct(),
-                type = "GROUP"
-
-            )
-          return entry
-
-        }
-
-    }
+    ) : Entries?
+    {
+       if(teamString.isNullOrBlank())
+       {
+           return null
+       }
+        return null
+    }*/
 
   private  fun getAlertSolo()
     {

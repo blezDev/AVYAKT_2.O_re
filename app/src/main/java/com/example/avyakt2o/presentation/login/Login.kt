@@ -51,7 +51,7 @@ class Login : AppCompatActivity() {
         btnLogin = findViewById(R.id.btnLogin)
         tvForgot = findViewById(R.id.tvForgot)
         logProgressBar = findViewById(R.id.logProgressBar)
-        val imageView = findViewById<ImageView>(R.id.imageView2)
+
         if(!isOnline(this))
         {
             SweetAlertDialog(this,SweetAlertDialog.WARNING_TYPE)

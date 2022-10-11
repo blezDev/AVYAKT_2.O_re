@@ -25,66 +25,40 @@ class TeamFormAdapter(private val TeamList: ArrayList<com.example.avyakt2o.data.
         holder.Name.hint = Team.name
         holder.Roll.hint = Team.roll
         holder.Email.hint = Team.mail
-        holder.teamName.hint = Team.teamName
+
         holder.Phone.hint = Team.phone
         holder.btn_Verify.setOnClickListener {
             val name = holder.Name.text.toString()
             val email = holder.Email.text.toString()
             val roll = holder.Roll.text.toString()
-            val teamname = holder.teamName.text.toString()
+
             val phone = holder.Phone.text.toString()
 
 
-            if(name.isNotEmpty() && email.isNotEmpty() && roll.isNotEmpty() && teamname.isNotEmpty() && phone.isNotEmpty())
-            {
+            if(name.isNotEmpty() && email.isNotEmpty() && roll.isNotEmpty() && phone.isNotEmpty()) {
 
-                onItemClick?.invoke(com.example.avyakt2o.data.TeamForm(
-                    name = name,
-                    mail = email,
-                    roll = roll,
-                    teamName = teamname,
-                    phone = phone
+                onItemClick?.invoke(
+                    com.example.avyakt2o.data.TeamForm(
+                        name = name,
+                        mail = email,
+                        roll = roll,
+                        phone = phone
 
-                ))
-                holder.apply {
-                   Name.isEnabled = false
-                    Roll.isEnabled = false
-                    Email.isEnabled = false
-                    teamName.isEnabled = false
-                    Phone.isEnabled = false
-                }
-
-                holder.btn_Verify.apply {
-                  text = "ADDED  ✅"
-                    isClickable = false
-                }
-
-            }
-
-            else if (name.isNotEmpty() && email.isNotEmpty() && roll.isNotEmpty() && teamname.isEmpty() && phone.isNotEmpty()){
-                onItemClick?.invoke(com.example.avyakt2o.data.TeamForm(
-                    name = name,
-                    mail = email,
-                    roll = roll,
-                    teamName = "",
-                    phone = phone
-
-                ))
+                    )
+                )
                 holder.apply {
                     Name.isEnabled = false
                     Roll.isEnabled = false
                     Email.isEnabled = false
-                    teamName.isEnabled = false
                     Phone.isEnabled = false
                 }
 
                 holder.btn_Verify.apply {
-                    setText("ADDED  ✅")
+                    text = "ADDED  ✅"
                     isClickable = false
                 }
 
             }
-
             else{
                 SweetAlertDialog(context,SweetAlertDialog.WARNING_TYPE)
                     .setTitleText("WARNING!!")
@@ -106,7 +80,6 @@ class TeamFormAdapter(private val TeamList: ArrayList<com.example.avyakt2o.data.
         val Name: EditText = itemView.findViewById(R.id.memberName)
         val Roll: EditText = itemView.findViewById(R.id.memberRoll)
         val Email: EditText = itemView.findViewById(R.id.memberEmail)
-        val teamName: EditText = itemView.findViewById(R.id.teamName)
         val Phone: EditText = itemView.findViewById(R.id.memberPhone)
         val btn_Verify : Button = itemView.findViewById(R.id.btn_Verify)
     }

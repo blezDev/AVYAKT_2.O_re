@@ -130,7 +130,7 @@ class HomeFragment : Fragment() {
     {
         when(EventType)
         {
-            "android" -> formType(1,EventType,EventName,1,2)
+            "android" -> formType(1,EventType,EventName,1,4)
             "GDSC(Hack for Giet)" -> formType(1,EventType,EventName,1,5)
             "Code Soccer (DSC Club)" -> formType(1,EventType,EventName,1,5)
             "Blind Coding. (DSC Club)" -> formType(1,EventType,EventName,1,5)

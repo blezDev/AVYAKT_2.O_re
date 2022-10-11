@@ -33,7 +33,7 @@ class TeamForm : AppCompatActivity() {
     private lateinit var FormReg : ArrayList<com.example.avyakt2o.data.TeamForm>
     private lateinit var regFormAdapter : TeamFormAdapter
     private lateinit var addCard : ImageView
-
+    val list = listOf("Song","Dance","Mono Acting/Mimicry","Drama (Based on Short story 10 mins)")
     private lateinit var formViewModel: FormViewModel
     private lateinit var tokenManager: TokenManager
     private lateinit var instructionBrn : Button
@@ -47,7 +47,7 @@ class TeamForm : AppCompatActivity() {
 
         val MIN_SIZE = intent.getIntExtra(MINSIZE,1) - 1
         val MAX_SIZE = intent.getIntExtra(MAXSIZE,5) - 1
-        formViewModel = ViewModelProvider(this)[FormViewModel::class.java]
+         formViewModel = ViewModelProvider(this)[FormViewModel::class.java]
          EventType = intent.getStringExtra(Constants.EVENT_TYPE).toString()
          EventName = intent.getStringExtra(Constants.EVENT_NAME).toString()
 
@@ -55,7 +55,7 @@ class TeamForm : AppCompatActivity() {
         val emailList = ArrayList<String>()
         val rollnoList = ArrayList<String>()
         val phoneList = ArrayList<String>()
-        val teamNameList = ArrayList<String>()
+
         var count = 0
 
         addCard = findViewById(R.id.AddForm)
@@ -67,18 +67,14 @@ class TeamForm : AppCompatActivity() {
         val token = tokenManager.getToken()!!
         FormReg = ArrayList()
 
-     /*   if( EventType in list)
-        {
+        if( EventType in list)
             getAlertSolo()
-        }
         else
-            getAlertTeam()*/
+            getAlertTeam()
 
         instructionBrn.setOnClickListener {
             if( EventType in list)
-            {
                 getAlertSolo()
-            }
             else
                 getAlertTeam()
         }
@@ -111,12 +107,28 @@ class TeamForm : AppCompatActivity() {
                 rollnoList.add(binding.roll1.text.toString())
                 emailList.add(binding.email1.text.toString())
                 phoneList.add(binding.phone1.text.toString())
-              /*  val entry = getEntry(nameList,emailList,rollnoList,binding.teamName1.text.toString(),EventName,phoneList)*/
+                val teamName = binding.teamName1.text.toString()
+                val nameListSub = nameList.distinct()
+                if(EventType !in list && (teamName.isEmpty() || teamName.isBlank()))
+                {
+                    SweetAlertDialog(this,SweetAlertDialog.WARNING_TYPE)
+                        .setTitleText("WARNING!!")
+                        .setContentText("THIS IS A GROUP EVENT.\n Team name is necessary along with team members details.")
+                        .show()
 
+                }else if(EventType !in list && nameListSub.size < (MIN_SIZE + 1 + 1))
+                {
+                    SweetAlertDialog(this,SweetAlertDialog.WARNING_TYPE)
+                        .setTitleText("WARNING!!")
+                        .setContentText("THIS IS A GROUP EVENT of ${MIN_SIZE + 1 + 1} minimum participation.")
+                        .show()
+                }
 
-                Log.e("TAG","HI THERE REGISTER BLOCK")
-
-
+                else{
+                    val entry = getEntry(token,nameList.distinct(),rollnoList.distinct(),emailList.distinct(),phoneList.distinct(),teamName)
+                    Log.e("TAG",nameList.size.toString())
+                    Log.e("TAG",entry.toString())
+                }
 
 
             }
@@ -134,28 +146,34 @@ class TeamForm : AppCompatActivity() {
             }
             else
             {
+                if(binding.teamName1.text.isEmpty() || binding.teamName1.text.isBlank( )){
+                    SweetAlertDialog(this,SweetAlertDialog.NORMAL_TYPE)
+                        .setTitleText("WARNING")
+                        .setContentText("YOU LEFT OUT TEAM NAME IF YOU ARE ADDING MORE MEMBERS")
+                        .show()
+                }
+                else
               addNewItem(0,com.example.avyakt2o.data.TeamForm("Name","Email","Official Mail","Phone Number"))
             }
         }
 
     }
 
-
-   /* private fun getEntry(
-        nameList: ArrayList<String>,
-        emailList: ArrayList<String>,
-        rollnoList: ArrayList<String>,
-        teamString: String,
-        EventName: String,
-        phoneList: ArrayList<String>
-    ) : Entries?
-    {
-       if(teamString.isNullOrBlank())
-       {
-           return null
-       }
-        return null
-    }*/
+    private fun getEntry(
+        token: String,
+        nameList: List<String>,
+        rollnoList: List<String>,
+        emailList: List<String>,
+        phoneList: List<String>,
+        teamName: String
+    ): Entries {
+        if(nameList.size == 1 && (teamName.isBlank() || teamName.isEmpty())){
+            return Entries(token = token,nameList.reversed(),emailList.reversed(),rollnoList.reversed(),null, eventName = EventName,phoneList.reversed(),"SOLO")
+        }
+        else {
+            return Entries(token = token,nameList.reversed(),emailList.reversed(),rollnoList.reversed(),teamName, eventName = EventName,phoneList.reversed(),"GROUP")
+        }
+    }
 
   private  fun getAlertSolo()
     {
@@ -176,10 +194,6 @@ class TeamForm : AppCompatActivity() {
         FormReg.add(0,teamForm)
             regFormAdapter.notifyDataSetChanged()
     }
-
-
-
-
 
     private fun register(entry: Entries, eventType: String) {
         when(eventType) {

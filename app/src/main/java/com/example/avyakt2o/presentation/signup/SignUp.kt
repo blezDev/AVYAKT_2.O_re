@@ -113,7 +113,7 @@ class SignUp : AppCompatActivity() {
            }
         }
 
-        var options = arrayOf("1st Year","2nd Year","3rd Year")
+        var options = arrayOf("1st Year","2nd Year","3rd Year","4th Year")
 
          etYear.adapter = ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,options)
 

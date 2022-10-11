@@ -33,7 +33,7 @@ class TeamForm : AppCompatActivity() {
     private lateinit var FormReg : ArrayList<com.example.avyakt2o.data.TeamForm>
     private lateinit var regFormAdapter : TeamFormAdapter
     private lateinit var addCard : ImageView
-    val list = listOf("Song","Dance","Mono Acting/Mimicry","Drama (Based on Short story 10 mins)")
+    val list = listOf("Song","Dance","Mono Acting/Mimicry","Drama (Based on Short story 10 mins)","Idea Presentation Event",)
     private lateinit var formViewModel: FormViewModel
     private lateinit var tokenManager: TokenManager
     private lateinit var instructionBrn : Button
@@ -43,10 +43,10 @@ class TeamForm : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_team_form)
 
-        val list = listOf("Song","Dance","Mono Acting/Mimicry","Drama (Based on Short story 10 mins)")
+        val list = listOf("Song","Dance","Mono Acting/Mimicry","Drama (Based on Short story 10 mins)","Idea")
 
-        val MIN_SIZE = intent.getIntExtra(MINSIZE,1) - 1
-        val MAX_SIZE = intent.getIntExtra(MAXSIZE,5) - 1
+        val MIN_SIZE = intent.getIntExtra(MINSIZE,1)
+        val MAX_SIZE = intent.getIntExtra(MAXSIZE,5)
          formViewModel = ViewModelProvider(this)[FormViewModel::class.java]
          EventType = intent.getStringExtra(Constants.EVENT_TYPE).toString()
          EventName = intent.getStringExtra(Constants.EVENT_NAME).toString()
@@ -116,11 +116,11 @@ class TeamForm : AppCompatActivity() {
                         .setContentText("THIS IS A GROUP EVENT.\n Team name is necessary along with team members details.")
                         .show()
 
-                }else if(EventType !in list && nameListSub.size < (MIN_SIZE + 1 + 1))
+                }else if(EventType !in list && nameListSub.size < (MIN_SIZE))
                 {
                     SweetAlertDialog(this,SweetAlertDialog.WARNING_TYPE)
                         .setTitleText("WARNING!!")
-                        .setContentText("THIS IS A GROUP EVENT of ${MIN_SIZE + 1 + 1} minimum participation.")
+                        .setContentText("THIS IS A GROUP EVENT of ${MIN_SIZE} minimum participation.")
                         .show()
                 }
 
@@ -128,6 +128,7 @@ class TeamForm : AppCompatActivity() {
                     val entry = getEntry(token,nameList.distinct(),rollnoList.distinct(),emailList.distinct(),phoneList.distinct(),teamName)
                     Log.e("TAG",nameList.size.toString())
                     Log.e("TAG",entry.toString())
+                 /*   register(entry,EventType)*/
                 }
 
 
@@ -137,16 +138,16 @@ class TeamForm : AppCompatActivity() {
 
 
         addCard.setOnClickListener {
-            if(FormReg.size > MAX_SIZE)
+            if(FormReg.size > MAX_SIZE -1)
             {
                 SweetAlertDialog(this,SweetAlertDialog.NORMAL_TYPE)
                     .setTitleText("INSTRUCTION")
-                    .setContentText("Max Participation Limit is ${MAX_SIZE + 1}")
+                    .setContentText("Max Participation Limit is ${MAX_SIZE}")
                     .show()
             }
             else
             {
-                if(binding.teamName1.text.isEmpty() || binding.teamName1.text.isBlank( )){
+                if(binding.teamName1.text.isEmpty() || binding.teamName1.text.isBlank()){
                     SweetAlertDialog(this,SweetAlertDialog.NORMAL_TYPE)
                         .setTitleText("WARNING")
                         .setContentText("YOU LEFT OUT TEAM NAME IF YOU ARE ADDING MORE MEMBERS")

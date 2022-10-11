@@ -1,7 +1,7 @@
 package com.example.avyakt2o.utils
 
 object Constants {
-    const val BASE_URL = "http://3.111.252.41:5000"
+    const val BASE_URL = "https://csefest.d3m0n1k.engineer/"
     const val RE_TAG = "RE_TAG"
     const val PREFS_TOKEN_FILE = "PREFS_TOKEN_FILE"
     const val USER_TOKEN = "USER_TOKEN"

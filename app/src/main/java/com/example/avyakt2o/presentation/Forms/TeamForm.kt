@@ -128,7 +128,7 @@ class TeamForm : AppCompatActivity() {
                     val entry = getEntry(token,nameList.distinct(),rollnoList.distinct(),emailList.distinct(),phoneList.distinct(),teamName)
                     Log.e("TAG",nameList.size.toString())
                     Log.e("TAG",entry.toString())
-                 /*   register(entry,EventType)*/
+                    register(entry,EventType)
                 }
 
 
@@ -138,7 +138,7 @@ class TeamForm : AppCompatActivity() {
 
 
         addCard.setOnClickListener {
-            if(FormReg.size > MAX_SIZE -1)
+            if(FormReg.size > MAX_SIZE -2)
             {
                 SweetAlertDialog(this,SweetAlertDialog.NORMAL_TYPE)
                     .setTitleText("INSTRUCTION")

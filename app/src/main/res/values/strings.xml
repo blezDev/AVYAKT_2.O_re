@@ -18,6 +18,7 @@
     <string name="add_form">Add Form </string>
 
     <string name="instruction_SOLO">
+    ->  Leave Team Name as  IT IS  if going  || FOR SOLO ||.\n\n
 
     ->	Enter the Details of ONE member FIRST and click on verify.\n\n
 
@@ -27,7 +28,7 @@
 
     ->  AFTER ADDED, Click Submit Button.\n\n
 
-    ->  Leave Team Name as  IT IS  if going  || FOR SOLO ||.\n
+
 </string>
 
     <string name="instruction_TEAM">

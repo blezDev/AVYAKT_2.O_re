@@ -8,11 +8,14 @@
     tools:context=".presentation.Forms.SoloForm">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/linearLayout6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        app:layout_constraintBottom_toTopOf="@+id/instructionLinearLayout_SOLO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="wrap_content"
@@ -61,7 +64,7 @@
             android:layout_marginRight="20dp"
             android:background="@color/trans"
             android:ems="10"
-            android:hint="Officail Mail"
+            android:hint="Official Mail"
             android:inputType="textEmailAddress"
             android:minHeight="48dp"
             android:paddingLeft="20dp"
@@ -92,7 +95,32 @@
             android:background="@drawable/formbtn"
             android:text="Register"
             android:textColor="@color/glass_purple" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/instructionLinearLayout_SOLO"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="6dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="6dp">
+
+        <TextView
+            android:id="@+id/instructionText_SOLO"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="FOR INSTRUCTION  ->"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/instructionBrn_SOLO"
+            android:layout_width="23dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="HERE" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

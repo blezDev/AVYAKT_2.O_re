@@ -2,9 +2,11 @@ package com.example.avyakt2o.presentation
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Gravity
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
@@ -43,17 +45,20 @@ class HostActivity : AppCompatActivity() {
               R.id.homeFragment ->
               {
                  navController?.navigate(R.id.homeFragment)
+                binding.HostdrawerLayout.closeDrawer(GravityCompat.START)
 
 
               }
                 R.id.galeryFragment ->
                 {
                     navController?.navigate(R.id.galeryFragment)
+                    binding.HostdrawerLayout.closeDrawer(GravityCompat.START)
                 }
 
                 R.id.aboutFragment ->
                 {
                     navController?.navigate(R.id.aboutFragment)
+                    binding.HostdrawerLayout.closeDrawer(GravityCompat.START)
                 }
 
 

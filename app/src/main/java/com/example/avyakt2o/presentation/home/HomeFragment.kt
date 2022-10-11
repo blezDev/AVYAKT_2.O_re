@@ -32,6 +32,8 @@ import com.example.avyakt2o.presentation.Forms.SoloForm
 import com.example.avyakt2o.presentation.Forms.TeamForm
 import com.example.avyakt2o.utils.Constants.EVENT_NAME
 import com.example.avyakt2o.utils.Constants.EVENT_TYPE
+import com.example.avyakt2o.utils.Constants.MAXSIZE
+import com.example.avyakt2o.utils.Constants.MINSIZE
 import com.example.avyakt2o.utils.Constants.TEAM_SIZE
 import com.example.avyakt2o.utils.TokenManager
 import retrofit2.Call
@@ -128,34 +130,34 @@ class HomeFragment : Fragment() {
     {
         when(EventType)
         {
-            "android" -> formType(1,EventType,EventName)
-            "GDSC(Hack for Giet)" -> formType(1,EventType,EventName)
-            "Code Soccer (DSC Club)" -> formType(1,EventType,EventName)
-            "Blind Coding. (DSC Club)" -> formType(1,EventType,EventName)
-            "Code Debugging. (Cyber Security)" -> formType(1,EventType,EventName)
-            "Web puzzle. (Web eye)" -> formType(1,EventType,EventName)
-            "Poster Making Competition" -> formType(0,EventType,EventName)
-            "Robotics EVENT. (Robo soccer, Taskmaster, AquaRobo, Line follower). (SARS)" -> formType(1,EventType,EventName)
-            "Workshop" -> formType(0,EventType,EventName)
-            "Guest talks" -> formType(0,EventType,EventName)
-            "Innovative Idea Poster Presentation" -> formType(0,EventType,EventName)
-            "Quiz" -> formType(0,EventType,EventName)
-            "Gaming" -> formType(1,EventType,EventName)
-            "Group Discussion" -> formType(1,EventType,EventName)
-            "Craft Making. (Based on all recyclable items)" -> formType(0,EventType,EventName)
-            "Treasure Hunt" -> formType(1,EventType,EventName)
-            "Rangoli. (individual)" -> formType(0,EventType,EventName)
-            "Musical Chair" -> formType(0,EventType,EventName)
-            "Eureka (PDCS CLUB)" -> formType(0,EventType,EventName)
-            "G.K Quiz. (Organising team)" -> formType(1,EventType,EventName)
-            "CSE-GOT Tallent" -> formType(0,EventType,EventName)
-            "On the spot painting" -> formType(0,EventType,EventName)
-            "CARTOONING" -> formType(0,EventType,EventName)
-            "Song" -> formType(1,EventType,EventName)
-            "Dance" -> formType(1,EventType,EventName)
-            "Fashion Show" -> formType(0,EventType,EventName)
-            "Mono Acting/Mimicry" -> formType(1,EventType,EventName)
-            "Drama (Based on Short story 10 mins)" -> formType(1,EventType,EventName)
+            "android" -> formType(1,EventType,EventName,1,2)
+            "GDSC(Hack for Giet)" -> formType(1,EventType,EventName,1,5)
+            "Code Soccer (DSC Club)" -> formType(1,EventType,EventName,1,5)
+            "Blind Coding. (DSC Club)" -> formType(1,EventType,EventName,1,5)
+            "Code Debugging. (Cyber Security)" -> formType(1,EventType,EventName,1,5)
+            "Web puzzle. (Web eye)" -> formType(1,EventType,EventName,1,5)
+            "Poster Making Competition" -> formType(0,EventType,EventName,0,5)
+            "Robotics EVENT. (Robo soccer, Taskmaster, AquaRobo, Line follower). (SARS)" -> formType(1,EventType,EventName,1,5)
+            "Workshop" -> formType(0,EventType,EventName,1,5)
+            "Guest talks" -> formType(0,EventType,EventName,1,5)
+            "Innovative Idea Poster Presentation" -> formType(0,EventType,EventName,1,5)
+            "Quiz" -> formType(0,EventType,EventName,1,5)
+            "Gaming" -> formType(1,EventType,EventName,1,5)
+            "Group Discussion" -> formType(1,EventType,EventName,1,5)
+            "Craft Making. (Based on all recyclable items)" -> formType(0,EventType,EventName,1,5)
+            "Treasure Hunt" -> formType(1,EventType,EventName,1,5)
+            "Rangoli. (individual)" -> formType(0,EventType,EventName,1,5)
+            "Musical Chair" -> formType(0,EventType,EventName,1,5)
+            "Eureka (PDCS CLUB)" -> formType(0,EventType,EventName,1,5)
+            "G.K Quiz. (Organising team)" -> formType(1,EventType,EventName,1,5)
+            "CSE-GOT Tallent" -> formType(0,EventType,EventName,1,5)
+            "On the spot painting" -> formType(0,EventType,EventName,1,5)
+            "CARTOONING" -> formType(0,EventType,EventName,1,5)
+            "Song" -> formType(1,EventType,EventName,1,5)
+            "Dance" -> formType(1,EventType,EventName,1,5)
+            "Fashion Show" -> formType(0,EventType,EventName,1,5)
+            "Mono Acting/Mimicry" -> formType(1,EventType,EventName,1,5)
+            "Drama (Based on Short story 10 mins)" -> formType(1,EventType,EventName,1,5)
 
 
         }
@@ -183,13 +185,15 @@ class HomeFragment : Fragment() {
         return false
     }
 
-    private fun formType(formType : Int, EventType: String,EventName: String)
+    private fun formType(formType : Int, EventType: String,EventName: String, minSize : Int,maxSize :Int)
     {
         if(formType == 1)
         {
             val intent = Intent(requireContext(),TeamForm::class.java)
             intent.putExtra(EVENT_TYPE,EventType)
             intent.putExtra(EVENT_NAME,EventName)
+            intent.putExtra(MINSIZE,minSize)
+            intent.putExtra(MAXSIZE,maxSize)
             requireContext().startActivity(intent)
         }
         else{

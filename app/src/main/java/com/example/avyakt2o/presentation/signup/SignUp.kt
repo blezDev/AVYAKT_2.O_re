@@ -76,7 +76,6 @@ class SignUp : AppCompatActivity() {
                    roll = etRollnumber .text.toString().trim(),
                    number = etPhone.text.toString().trim(),
                    year = etYear.selectedItem.toString()
-
                )
                ).enqueue(object :Callback<RegisterStatus>{
                    override fun onResponse(

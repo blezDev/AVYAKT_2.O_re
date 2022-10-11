@@ -17,7 +17,7 @@
     <string name="name">Name</string>
     <string name="add_form">Add Form </string>
 
-    <string name="instruction_SOLO">  <b>!!! INSTRUCTIONS !!!</b>\n\n
+    <string name="instruction_SOLO">
 
     ->	Enter the Details of ONE member FIRST and click on verify.\n\n
 
@@ -25,11 +25,12 @@
 
     ->	Double CHECK The Details Before Clicking |VERIFY| Button.\n\n
 
-    ->  AFTER VERIFIED, Click Submit Button.\n\n
+    ->  AFTER ADDED, Click Submit Button.\n\n
+
     ->  Leave Team Name as  IT IS  if going  || FOR SOLO ||.\n
 </string>
 
-    <string name="instruction_TEAM">  <b>!!! INSTRUCTIONS !!!</b>\n\n
+    <string name="instruction_TEAM">
 
     ->	Enter the Details of ONE member FIRST and click on verify.\n\n
 
@@ -37,7 +38,11 @@
 
     ->	Double CHECK The Details Before Clicking |VERIFY| Button.\n\n
 
-    ->  AFTER VERIFIED, Click Submit Button.\n\n
+    ->  AFTER ADDED, Click Submit Button.\n\n
 </string>
+    <string name="instruction_SOLO_EVENT">
+        ->	Enter the Details and Click Register.\n\n-> on successful registration, confirmation mail will sent to your mail.
+
+    </string>
 
 </resources>

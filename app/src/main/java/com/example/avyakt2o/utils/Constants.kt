@@ -12,5 +12,7 @@ object Constants {
     const val EMAIL = "EMAIL"
     const val PASSWORD = "PASSWORD"
     const val CONTEXT = "CONTEXT"
+    const val MINSIZE = "MINSIZE"
+    const val MAXSIZE = "MAXSIZE"
 
 }

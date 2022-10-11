@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -18,6 +17,8 @@ import com.example.avyakt2o.data.Entries
 import com.example.avyakt2o.data.EntriesStatus
 import com.example.avyakt2o.presentation.HostActivity
 import com.example.avyakt2o.utils.Constants
+import com.example.avyakt2o.utils.Constants.MAXSIZE
+import com.example.avyakt2o.utils.Constants.MINSIZE
 import com.example.avyakt2o.utils.TokenManager
 import retrofit2.Call
 import retrofit2.Callback
@@ -26,7 +27,6 @@ import retrofit2.Response
 class TeamForm : AppCompatActivity() {
   private lateinit var  EventType :String
     private lateinit var EventName :String
-
     private lateinit var FormRecycle: RecyclerView
     private lateinit var FormReg : ArrayList<com.example.avyakt2o.data.TeamForm>
     private lateinit var regFormAdapter : TeamFormAdapter
@@ -34,40 +34,19 @@ class TeamForm : AppCompatActivity() {
     private lateinit var SubmitFormBtn : Button
     private lateinit var formViewModel: FormViewModel
     private lateinit var tokenManager: TokenManager
-    private lateinit var instructionText : TextView
+    private lateinit var instructionBrn : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_team_form)
         val list = listOf("Song","Dance","Mono Acting/Mimicry","Drama (Based on Short story 10 mins)")
 
+        val MIN_SIZE = intent.getIntExtra(MINSIZE,1) - 1
+        val MAX_SIZE = intent.getIntExtra(MAXSIZE,5) - 1
         formViewModel = ViewModelProvider(this)[FormViewModel::class.java]
-
-        EventType = intent.getStringExtra(Constants.EVENT_TYPE).toString()
+         EventType = intent.getStringExtra(Constants.EVENT_TYPE).toString()
          EventName = intent.getStringExtra(Constants.EVENT_NAME).toString()
-        instructionText = findViewById(R.id.instructionText)
-        if(EventType in list)
-        {
-            instructionText.setText(R.string.instruction_SOLO)
-        }
-        else
-        {
-            instructionText.setText(R.string.instruction_TEAM)
-        }
 
-        addCard = findViewById(R.id.AddForm)
-
-        SubmitFormBtn = findViewById(R.id.SubmitFormBtn)
-        FormRecycle = findViewById(R.id.TeamRecycle)
-        FormRecycle.layoutManager = LinearLayoutManager(this)
-        tokenManager = TokenManager(applicationContext)
-        val token = tokenManager.getToken()!!
-
-        FormReg = ArrayList()
-
-        addCard.setOnClickListener {
-            addNewItem(FormReg)
-        }
         val nameList = ArrayList<String>()
         val emailList = ArrayList<String>()
         val rollnoList = ArrayList<String>()
@@ -75,9 +54,33 @@ class TeamForm : AppCompatActivity() {
         val teamNameList = ArrayList<String>()
         var count = 0
 
+        addCard = findViewById(R.id.AddForm)
+        SubmitFormBtn = findViewById(R.id.SubmitFormBtn)
+        instructionBrn = findViewById(R.id.instructionBrn_TEAM)
+        FormRecycle = findViewById(R.id.TeamRecycle)
+        FormRecycle.layoutManager = LinearLayoutManager(this)
+        tokenManager = TokenManager(applicationContext)
+        val token = tokenManager.getToken()!!
+        var teamCheck = 0
+        FormReg = ArrayList()
 
 
 
+        if( EventType in list)
+        {
+            getAlertSolo()
+        }
+        else
+            getAlertTeam()
+
+        instructionBrn.setOnClickListener {
+            if( EventType in list)
+            {
+                getAlertSolo()
+            }
+            else
+                getAlertTeam()
+        }
         regFormAdapter = TeamFormAdapter(FormReg,this@TeamForm)
         FormRecycle.adapter = regFormAdapter
         regFormAdapter.onItemClick =
@@ -118,14 +121,33 @@ class TeamForm : AppCompatActivity() {
                 }
                 else
                 {
-                    Log.e("TAG","register block")
 
-                    register(entryDetails,EventType)
+                    Log.e("TAG","register block" + entryDetails.toString())
+
+                 /*   register(entryDetails,EventType)*/
                 }
 
             }
-            Log.e("TAG",nameList.toString() + emailList.toString() + phoneList.toString() + rollnoList.toString() +teamNameList.isEmpty())
+
         }
+        addCard.setOnClickListener {
+            if(FormReg.size > MAX_SIZE)
+            {
+                SweetAlertDialog(this,SweetAlertDialog.NORMAL_TYPE)
+                    .setTitleText("INSTRUCTION")
+                    .setContentText("Max Participation Limit is ${MAX_SIZE + 1}")
+                    .show()
+            }
+            else
+            {
+               when(teamCheck)
+               {
+                   0 -> addNewItem(0,com.example.avyakt2o.data.TeamForm("Name","Roll Number","Email","Team Name","Phone Number"))
+                   else -> addNewItem(0,com.example.avyakt2o.data.TeamForm("Name","Roll Number","Email",teamNameList[0].toString(),"Phone Number"))
+               }
+            }
+        }
+
     }
 
 
@@ -167,7 +189,7 @@ class TeamForm : AppCompatActivity() {
 
         else
         {
-            if(FormReg.size ==1 || teamNameList.size == 1)
+            if(FormReg.size == 1)
             {
                 SweetAlertDialog(this@TeamForm,SweetAlertDialog.WARNING_TYPE)
                     .setTitleText("WARNING!!")
@@ -193,12 +215,26 @@ class TeamForm : AppCompatActivity() {
 
     }
 
-
-
-    fun addNewItem(itemsNew: ArrayList<com.example.avyakt2o.data.TeamForm>){
-        FormReg.add(0,com.example.avyakt2o.data.TeamForm("Name","Roll Number","Email","Team Name","Phone Number"))
-        regFormAdapter.notifyDataSetChanged()
+  private  fun getAlertSolo()
+    {
+        SweetAlertDialog(this,SweetAlertDialog.NORMAL_TYPE)
+            .setTitleText("INSTRUCTIONS")
+            .setContentText(getString(R.string.instruction_SOLO))
+            .show()
     }
+  private  fun getAlertTeam()
+    {
+        SweetAlertDialog(this,SweetAlertDialog.NORMAL_TYPE)
+            .setTitleText("INSTRUCTIONS")
+            .setContentText(getString(R.string.instruction_TEAM))
+            .show()
+    }
+
+    fun addNewItem(index : Int ?=0  , teamForm : com.example.avyakt2o.data.TeamForm ){
+        FormReg.add(0,teamForm)
+            regFormAdapter.notifyDataSetChanged()
+    }
+
 
 
 
@@ -235,6 +271,8 @@ class TeamForm : AppCompatActivity() {
             "Fashion Show" -> fashionShowEventRoute(entry)
             "Mono Acting/Mimicry" -> mimicryEventRoute(entry)
             "Drama (Based on Short story 10 mins)" -> DramaEventRoute(entry)
+            "tshirts" -> tshirtsEventRoute(entry)
+            "stalls" -> stallEventRoute(entry)
 
         }
     }

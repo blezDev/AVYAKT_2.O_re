@@ -22,18 +22,34 @@
             android:layout_height="match_parent">
 
 
-            <TextView
-                android:id="@+id/instructionText"
+            <LinearLayout
+                android:id="@+id/instructionLinearLayout_TEAM"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/instruction_TEAM"
+                android:orientation="horizontal"
                 android:layout_marginTop="10dp"
-                android:textColor="@color/white"
                 android:layout_margin="6dp"
-                android:textSize="12sp"
+
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent" >
+
+                <TextView
+                    android:id="@+id/instructionText_TEAM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/white"
+                    android:text="FOR INSTRUCTION  ->" />
+
+                <Button
+                    android:id="@+id/instructionBrn_TEAM"
+                    android:layout_width="23dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:text="HERE" />
+            </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/TeamRecycle"
@@ -43,7 +59,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/instructionText" />
+                app:layout_constraintTop_toBottomOf="@+id/instructionLinearLayout_TEAM" />
 
             <ImageView
                 android:id="@+id/AddForm"

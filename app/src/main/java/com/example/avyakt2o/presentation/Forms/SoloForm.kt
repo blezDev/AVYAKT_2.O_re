@@ -31,6 +31,7 @@ class SoloForm : AppCompatActivity() {
     private  lateinit var  btnVerifySolo: Button
     private lateinit var formViewModel :FormViewModel
     private lateinit var tokenManager: TokenManager
+    private lateinit var instructionBrn_SOLO : Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_solo_form)
@@ -39,11 +40,17 @@ class SoloForm : AppCompatActivity() {
         memberPhone = findViewById(R.id.memberPhone)
         memberEmail = findViewById(R.id.memberEmail)
         btnVerifySolo = findViewById(R.id.btnVerifySolo)
+        instructionBrn_SOLO =findViewById(R.id.instructionBrn_SOLO)
         tokenManager = TokenManager(applicationContext)
         formViewModel = ViewModelProvider(this)[FormViewModel::class.java]
 
         val EventType = intent.getStringExtra(EVENT_TYPE).toString()
         val EventName = intent.getStringExtra(EVENT_NAME).toString()
+        getAlert()
+
+        instructionBrn_SOLO.setOnClickListener {
+            getAlert()
+        }
 
         btnVerifySolo.setOnClickListener {
 
@@ -72,6 +79,15 @@ class SoloForm : AppCompatActivity() {
         }
 
     }
+
+  private fun getAlert()
+  {
+      SweetAlertDialog(this,SweetAlertDialog.NORMAL_TYPE)
+          .setTitleText("INSTRUCTIONS")
+          .setContentText(getString(R.string.instruction_SOLO_EVENT))
+          .show()
+  }
+
     private fun register(entry: Entries, eventType: String) {
         when(eventType) {
 

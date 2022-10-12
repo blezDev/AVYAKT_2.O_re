@@ -5,13 +5,17 @@ import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
+import android.util.Patterns
 import android.view.View
-import android.widget.*
+import android.widget.EditText
+import android.widget.ProgressBar
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import cn.pedant.SweetAlert.SweetAlertDialog
-import com.bumptech.glide.Glide
 import com.example.avyakt2o.R
 import com.example.avyakt2o.data.LoginStatus
 import com.example.avyakt2o.presentation.Forgot.Forgot
@@ -21,12 +25,10 @@ import com.example.avyakt2o.presentation.otp.OtpActivity
 import com.example.avyakt2o.presentation.signup.SignUp
 import com.example.avyakt2o.utils.TokenManager
 import com.skydoves.elasticviews.ElasticButton
-
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.*
-import kotlin.concurrent.timerTask
+
 
 class Login : AppCompatActivity() {
 
@@ -38,6 +40,7 @@ class Login : AppCompatActivity() {
     private  lateinit var btnLogin : ElasticButton
     private lateinit var logProgressBar : ProgressBar
     private lateinit var loginViewModel: LoginViewModel
+    private val emailPattern = "[a-zA-Z0-9._-]+@giet+.+edu+"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,13 +63,18 @@ class Login : AppCompatActivity() {
             .show()
         }
 
+
+
         logProgressBar.visibility = View.INVISIBLE
 
         btnLogin.setOnClickListener {
+            val email = etEmail.text.toString().trim()
 
-            if(etEmail.text.isNotEmpty() && etPassword.text.toString().isNotEmpty())
+
+            if(etEmail.text.isNotEmpty() && validateEmail(email) && etPassword.text.toString().isNotEmpty())
             { logProgressBar.visibility = View.VISIBLE
-                loginViewModel.retService.login(com.example.avyakt2o.data.Login(etEmail.text.toString().trim(),etPassword.text.toString())).enqueue(
+
+                loginViewModel.retService.login(com.example.avyakt2o.data.Login(email,etPassword.text.toString())).enqueue(
                     object :Callback<LoginStatus>
                     {
                         override fun onResponse(
@@ -133,7 +141,18 @@ class Login : AppCompatActivity() {
             goToForget()
         }
 
+
+
     }
+    //
+    fun validateEmail(email:String) : Boolean {
+        if (email.matches(emailPattern.toRegex())) {
+            return true
+        } else {
+           return false
+        }
+    }
+
     private fun goToForget()
     {
         val intent = Intent(this, Forgot::class.java)
@@ -180,4 +199,6 @@ class Login : AppCompatActivity() {
         }
         return false
     }
+
+
 }

@@ -35,6 +35,7 @@ class SignUp : AppCompatActivity() {
     private lateinit var loginViewModel : LoginViewModel
     private lateinit var tokenManager: TokenManager
     private lateinit var regProgressBar : ProgressBar
+    private val emailPattern = "[a-zA-Z0-9._-]+@giet+.+edu+"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,10 +65,9 @@ class SignUp : AppCompatActivity() {
         }
 
         btnSignup.setOnClickListener {
-
             Log.e("TAG",etYear.selectedItem.toString())
 
-           if(etEmail.text.isNotEmpty()&&etName.text.isNotEmpty()&&etRollnumber.text.isNotEmpty()&&etPassword.text.isNotEmpty()&&etPhone.text.isNotEmpty()){
+           if(etEmail.text.isNotEmpty() && validateEmail(etEmail.text.toString()) &&etName.text.isNotEmpty()&&etRollnumber.text.isNotEmpty()&&etPassword.text.isNotEmpty()&&etPhone.text.isNotEmpty()){
                regProgressBar.visibility = View.VISIBLE
                loginViewModel.retService.registerUser( Register(
                    email = etEmail.text.toString().trim(),
@@ -83,18 +83,19 @@ class SignUp : AppCompatActivity() {
                        response: Response<RegisterStatus>
                    ) {
                        regProgressBar.visibility = View.INVISIBLE
-                      if(response.body()?.message =="Register success!"){
-                          tokenManager = TokenManager(applicationContext)
-                          tokenManager.saveEmail(etEmail.text.toString().trim())
-                          gotoOTP()
-                      }
-                       else
-                      {
-                          SweetAlertDialog(this@SignUp,SweetAlertDialog.ERROR_TYPE)
-                              .setTitleText("OOPS!!")
-                              .setContentText(response.body()?.message)
-                              .show()
-                      }
+                       when(response.code()) {
+                           200 -> {
+                               tokenManager = TokenManager(applicationContext)
+                               tokenManager.saveEmail(etEmail.text.toString().trim())
+                               gotoOTP()
+                           }
+                           else -> {
+                               SweetAlertDialog(this@SignUp, SweetAlertDialog.ERROR_TYPE)
+                                   .setTitleText("OOPS!!")
+                                   .setContentText(response.body()?.message)
+                                   .show()
+                           }
+                       }
                    }
 
                    override fun onFailure(call: Call<RegisterStatus>, t: Throwable) {
@@ -144,6 +145,13 @@ class SignUp : AppCompatActivity() {
             return "Invalid Email Address"
         }
         return null
+    }
+    fun validateEmail(email:String) : Boolean {
+        if (email.matches(emailPattern.toRegex())) {
+            return true
+        } else {
+            return false
+        }
     }
     }
 /*

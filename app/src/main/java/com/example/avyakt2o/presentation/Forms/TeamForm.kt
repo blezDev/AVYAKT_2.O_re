@@ -38,12 +38,13 @@ class TeamForm : AppCompatActivity() {
     private lateinit var tokenManager: TokenManager
     private lateinit var instructionBrn : Button
     private lateinit var binding : ActivityTeamFormBinding
+    private val emailPattern = "[a-zA-Z0-9._-]+@giet+.+edu+"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_team_form)
 
-        val list = listOf("Song","Dance","Mono Acting/Mimicry","Drama (Based on Short story 10 mins)","Idea")
+
 
         val MIN_SIZE = intent.getIntExtra(MINSIZE,1)
         val MAX_SIZE = intent.getIntExtra(MAXSIZE,5)
@@ -92,6 +93,7 @@ class TeamForm : AppCompatActivity() {
                 phoneList.add(phone)
             count+=1
 
+
         }
 
 
@@ -103,6 +105,8 @@ class TeamForm : AppCompatActivity() {
                     .show()
             }else
             {
+
+
                 nameList.add(binding.Name1.text.toString())
                 rollnoList.add(binding.roll1.text.toString())
                 emailList.add(binding.email1.text.toString())
@@ -130,12 +134,8 @@ class TeamForm : AppCompatActivity() {
                     Log.e("TAG",entry.toString())
                     register(entry,EventType)
                 }
-
-
             }
-
         }
-
 
         addCard.setOnClickListener {
             if(FormReg.size > MAX_SIZE -2)
@@ -157,7 +157,6 @@ class TeamForm : AppCompatActivity() {
               addNewItem(0,com.example.avyakt2o.data.TeamForm("Name","Email","Official Mail","Phone Number"))
             }
         }
-
     }
 
     private fun getEntry(
@@ -212,7 +211,7 @@ class TeamForm : AppCompatActivity() {
             "Guest talks" -> guestTalksEventRoute(entry)
             "Innovative Idea Poster Presentation" -> innovativeIdeaPosterPresentationEventRoute(entry)
             "Quiz" -> quizEventRoute(entry)
-            "Gaming" -> gamingEventRoute(entry)
+          /*  "Gaming" -> gamingEventRoute(entry)*/
             "Group Discussion" -> groupDiscussionEventRoute(entry)
             "Craft Making. (Based on all recyclable items)" -> craftMakingEventRoute(entry)
             "Treasure Hunt" ->treasureHuntEventRoute(entry)
@@ -1443,6 +1442,20 @@ class TeamForm : AppCompatActivity() {
                 Toast.makeText(this@TeamForm,"Something went wrong.Try again",Toast.LENGTH_SHORT).show()
             }
         })
+    }
+
+    fun validateEmail(email:String) {
+        if (email.matches(emailPattern.toRegex())) {
+            Toast.makeText(
+                applicationContext, "Valid email address",
+                Toast.LENGTH_SHORT
+            ).show()
+        } else {
+            Toast.makeText(
+                applicationContext, "Invalid email address",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
     }
 
 

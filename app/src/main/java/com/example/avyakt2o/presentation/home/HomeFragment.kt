@@ -144,7 +144,7 @@ class HomeFragment : Fragment() {
             "Innovative Idea Poster Presentation" -> formType(0,EventType,EventName,1,5)
             "Quiz" -> formType(0,EventType,EventName,1,5)
             "Gaming" -> formType(1,EventType,EventName,1,5)
-            "Group Discussion" -> formType(1,EventType,EventName,1,5)
+            "Group Discussion" -> formType(0,EventType,EventName,2,5)
             "Craft Making. (Based on all recyclable items)" -> formType(0,EventType,EventName,1,5)
             "Treasure Hunt" -> formType(1,EventType,EventName,1,5)
             "Rangoli. (individual)" -> formType(0,EventType,EventName,1,5)
@@ -155,7 +155,7 @@ class HomeFragment : Fragment() {
             "On the spot painting" -> formType(0,EventType,EventName,1,5)
             "CARTOONING" -> formType(0,EventType,EventName,1,5)
             "Song" -> formType(1,EventType,EventName,1,5)
-            "Dance" -> formType(1,EventType,EventName,1,6)
+            "Dance" -> formType(1,EventType,EventName,1,8)
             "Fashion Show" -> formType(0,EventType,EventName,1,5)
             "Mono Acting/Mimicry" -> formType(1,EventType,EventName,1,5)
             "Drama (Based on Short story 10 mins)" -> formType(1,EventType,EventName,1,5)
@@ -241,10 +241,11 @@ class HomeFragment : Fragment() {
         handler = Handler(Looper.myLooper()!!)
         imageList = ArrayList()
 
-        imageList.add(R.drawable.csgo)
-        imageList.add(R.drawable.freefire)
-        imageList.add(R.drawable.pubg)
+        imageList.add(R.drawable.dance)
+        imageList.add(R.drawable.hackathon)
+        imageList.add(R.drawable.music)
         imageList.add(R.drawable.valo)
+        imageList.add(R.drawable.coding)
 
 
         adapter = ImageAdapter(imageList, viewPager2)

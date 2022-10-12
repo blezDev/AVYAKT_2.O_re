@@ -25,49 +25,50 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        tvText = findViewById(R.id.tvText)
-        tvText2 = findViewById(R.id.tvText2)
-        tvText3 = findViewById(R.id.tvText3)
-
-        ObjectAnimator.ofFloat(tvText, "translationX", 100f).apply {
-            duration = 1000
-            start()
-        }
-
-        ObjectAnimator.ofFloat(tvText2, "translationX", 200f).apply {
-            duration = 2000
-            start()
-        }
-
-        ObjectAnimator.ofFloat(tvText3, "translationX", 300f).apply {
-            duration = 3000
-            start()
-        }
-
         runActivity()
+
+//        tvText = findViewById(R.id.tvText)
+//        tvText2 = findViewById(R.id.tvText2)
+//        tvText3 = findViewById(R.id.tvText3)
+
+//        ObjectAnimator.ofFloat(tvText, "translationX", 100f).apply {
+//            duration = 1000
+//            start()
+//        }
+//
+//        ObjectAnimator.ofFloat(tvText2, "translationX", 200f).apply {
+//            duration = 2000
+//            start()
+//        }
+//
+//        ObjectAnimator.ofFloat(tvText3, "translationX", 300f).apply {
+//            duration = 3000
+//            start()
+//        }
+//
+//        runActivity()
+//    }
     }
 
 
-    fun runActivity()
-    {
-        if(!isDestroyed)
-        {   tokenManager = TokenManager(applicationContext)
+        fun runActivity() {
+            if (!isDestroyed) {
+                tokenManager = TokenManager(applicationContext)
 
-            val intentLogin = Intent(this, Login::class.java)
-            val intentHome = Intent(this, HostActivity::class.java)
-            val tmtask = timerTask {
-                if(!isDestroyed)
-                {
-                    if(tokenManager.getToken() !=null){
-                        startActivity(intentHome)
-                    }else
-                        startActivity(intentLogin)
-                    finish()
+                val intentLogin = Intent(this, Login::class.java)
+                val intentHome = Intent(this, HostActivity::class.java)
+                val tmtask = timerTask {
+                    if (!isDestroyed) {
+                        if (tokenManager.getToken() != null) {
+                            startActivity(intentHome)
+                        } else
+                            startActivity(intentLogin)
+                        finish()
+                    }
                 }
+                val timer = Timer()
+                timer.schedule(tmtask, 4000)
             }
-            val timer = Timer()
-            timer.schedule(tmtask,4000)
-        }
 
+        }
     }
-}

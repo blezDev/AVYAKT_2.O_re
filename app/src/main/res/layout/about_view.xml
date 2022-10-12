@@ -10,6 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         >
 
         <com.google.android.material.imageview.ShapeableImageView
@@ -31,23 +32,26 @@
 
         <TextView
             android:id="@+id/descriptionText"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="257dp"
+            android:layout_height="70dp"
             android:gravity="center"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="@+id/profileImage"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/profileImage"
-            app:layout_constraintTop_toTopOf="@+id/profileImage"
+            tools:layout_editor_absoluteY="16dp"
             tools:text="TextView" />
 
         <LinearLayout
+            android:id="@+id/linearLayout7"
             android:layout_width="wrap_content"
+            android:layout_marginTop="5dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.025"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/NameText">
+            app:layout_constraintTop_toBottomOf="@+id/profileImage">
 
             <ImageButton
                 android:id="@+id/githubImg"
@@ -90,13 +94,15 @@
             android:id="@+id/NameText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="TextView"
             android:gravity="center"
-            android:layout_marginTop="6dp"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/profileImage"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profileImage" />
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.852"
+            app:layout_constraintStart_toEndOf="@+id/profileImage"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionText"
+            app:layout_constraintVertical_bias="0.25"
+            tools:text="TextView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

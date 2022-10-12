@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/regbacks"
+    android:background="@drawable/logback"
     tools:context=".presentation.signup.SignUp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/back_col"
+        android:background="@color/back_col2"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,9 +52,10 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="40dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:layout_marginRight="40dp"
             android:background="@drawable/input_border"
+            android:textColor="@color/white"
             android:ems="10"
             android:hint="Name"
             android:inputType="textPersonName"
@@ -68,6 +69,7 @@
             android:layout_marginLeft="40dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="40dp"
+            android:textColor="@color/white"
             android:background="@drawable/input_border"
             android:ems="10"
             android:hint="Roll No"
@@ -81,6 +83,7 @@
             android:layout_height="50dp"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="20dp"
+            android:textColor="@color/white"
             android:layout_marginRight="40dp"
             android:background="@drawable/input_border"
             android:ems="10"
@@ -95,6 +98,7 @@
             android:layout_height="50dp"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="20dp"
+            android:textColor="@color/white"
             android:layout_marginRight="40dp"
             android:background="@drawable/input_border"
             android:ems="10"
@@ -109,6 +113,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="40dp"
+            android:textColor="@color/white"
             android:layout_marginTop="20dp"
             android:layout_marginRight="40dp"
             android:background="@drawable/input_border"
@@ -123,16 +128,15 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
             android:layout_marginTop="20dp"
+            android:layout_marginRight="40dp"
             android:background="@drawable/input_border"
-            />
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <Button
             android:id="@+id/btnSignup"
             android:layout_width="105dp"
             android:layout_height="38dp"
-
             android:layout_marginTop="20dp"
             android:layout_gravity="center_horizontal"
             android:gravity="center"

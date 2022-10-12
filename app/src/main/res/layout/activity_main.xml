@@ -10,68 +10,15 @@
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/gifImageView"
-        android:layout_width="408dp"
-        android:layout_height="183dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_weight=".5"
-        android:src="@drawable/one"
+        android:src="@drawable/loader"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="317dp"
-        android:layout_height="278dp"
-        android:layout_marginTop="8dp"
-        android:layout_weight=".5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gifImageView"
-        app:srcCompat="@drawable/front" />
-
-    <TextView
-        android:id="@+id/tvText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/almendra_display"
-        android:text="GIETU "
-        android:textColor="@color/white"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.455"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <TextView
-        android:id="@+id/tvText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/akronim"
-        android:text="Present"
-        android:textColor="@color/white"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.414"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvText" />
-
-    <TextView
-        android:id="@+id/tvText3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:fontFamily="@font/arapey"
-        android:text="Carnival"
-        android:textColor="@color/white"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.347"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvText2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

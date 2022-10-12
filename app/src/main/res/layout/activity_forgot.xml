@@ -10,14 +10,14 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/forgotback"
+        android:background="@drawable/logback"
         tools:context=".presentation.Forgot.Forgot">
 
         <LinearLayout
             android:id="@+id/linearLayout5"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@color/back_col"
+            android:background="@color/back_col2"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -29,12 +29,18 @@
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="60dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="30dp"
                 android:fontFamily="@font/aldrich"
-                android:gravity="center_horizontal"
                 android:text="Forgot Password"
                 android:textColor="@color/glass_purple"
                 android:textSize="30sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:src="@drawable/avyaktlogo"
+                android:layout_marginTop="10dp"/>
 
             <EditText
                 android:id="@+id/etEmail"
@@ -42,8 +48,7 @@
                 android:layout_height="49dp"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"
-                android:layout_marginTop="150dp"
-
+                android:layout_marginTop="50dp"
                 android:background="@drawable/input_border"
                 android:ems="10"
                 android:hint="Email"

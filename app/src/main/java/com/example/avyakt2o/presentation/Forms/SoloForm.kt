@@ -104,7 +104,7 @@ class SoloForm : AppCompatActivity() {
             "Guest talks" -> guestTalksEventRoute(entry)
             "Innovative Idea Poster Presentation" -> innovativeIdeaPosterPresentationEventRoute(entry)
             "Quiz" -> quizEventRoute(entry)
-            "Gaming" -> gamingEventRoute(entry)
+          /*  "Gaming" -> gamingEventRoute(entry)*/
             "Group Discussion" -> groupDiscussionEventRoute(entry)
             "Craft Making. (Based on all recyclable items)" -> craftMakingEventRoute(entry)
             "Treasure Hunt" ->treasureHuntEventRoute(entry)

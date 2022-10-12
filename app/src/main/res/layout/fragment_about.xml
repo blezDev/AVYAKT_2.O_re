@@ -12,7 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/navback"
+        android:background="@color/white"
         tools:context=".presentation.about.AboutFragment">
 
 
@@ -33,6 +33,7 @@
             android:id="@+id/AndroidRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="10dp"
             android:layout_marginStart="1dp"
             android:layout_marginTop="1dp"
             android:layout_marginEnd="1dp"
@@ -42,28 +43,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/androidText" />
-        <TextView
-            android:id="@+id/backendText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="6dp"
-            android:text="Backend Team"
-            android:textColor="@color/white"
-            android:textSize="32sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/AndroidRecyclerView" />
-
 
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/BackendRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/backendText" >
+            app:layout_constraintTop_toBottomOf="@+id/AndroidRecyclerView">
 
         </androidx.recyclerview.widget.RecyclerView>
 

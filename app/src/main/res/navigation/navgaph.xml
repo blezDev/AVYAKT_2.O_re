@@ -15,9 +15,4 @@
         android:name="com.example.avyakt2o.presentation.about.AboutFragment"
         android:label="fragment_about"
         tools:layout="@layout/fragment_about" />
-    <fragment
-        android:id="@+id/galeryFragment"
-        android:name="com.example.avyakt2o.presentation.galery.GaleryFragment"
-        android:label="fragment_galery"
-        tools:layout="@layout/fragment_galery" />
 </navigation>

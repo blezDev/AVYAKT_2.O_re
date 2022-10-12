@@ -49,12 +49,6 @@ class HostActivity : AppCompatActivity() {
 
 
               }
-                R.id.galeryFragment ->
-                {
-                    navController?.navigate(R.id.galeryFragment)
-                    binding.HostdrawerLayout.closeDrawer(GravityCompat.START)
-                }
-
                 R.id.aboutFragment ->
                 {
                     navController?.navigate(R.id.aboutFragment)

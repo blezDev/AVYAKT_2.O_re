@@ -2,7 +2,7 @@
     <string name="app_name">AVYAKT 2.0</string>
     <string name="close">Close</string>
     <string name="open">Open</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="sliderText">ACCESSIBLE EPISODE</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="profile_image">profile_image</string>
@@ -27,8 +27,6 @@
     ->	Double CHECK The Details Before Clicking |VERIFY| Button.\n\n
 
     ->  AFTER ADDED, Click Submit Button.\n\n
-
-
 </string>
 
     <string name="instruction_TEAM">
@@ -43,6 +41,22 @@
 </string>
     <string name="instruction_SOLO_EVENT">
         ->	Enter the Details and Click Register.\n\n-> on successful registration, confirmation mail will sent to your mail.
+
+    </string>
+    <string name="instruction_team_game">
+         ->	Entry Fee FOR SOLO:RS 20 \n\n
+        ->	Entry Fee FOR TEAM:RS 100 \n\n
+
+    </string>
+    <string name="instruction_solo_game">
+        ->	Entry Fee FOR TEAM:RS 100 \n\n
+
+    </string>
+    <string name="instruction_tshirt">
+
+        Mobile no-9777527505
+        Location -seminar hall (3rd floor ,CSE DEPARTMENT)
+        Time- evening
 
     </string>
 

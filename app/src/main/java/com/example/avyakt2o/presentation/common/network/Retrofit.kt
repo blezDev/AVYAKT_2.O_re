@@ -1,4 +1,4 @@
-package com.example.avyakt2o.network
+package com.example.avyakt2o.presentation.common.network
 
 import com.example.avyakt2o.utils.Constants.BASE_URL
 import com.google.gson.GsonBuilder

@@ -44,8 +44,6 @@ class TeamForm : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_team_form)
 
-
-
         val MIN_SIZE = intent.getIntExtra(MINSIZE,1)
         val MAX_SIZE = intent.getIntExtra(MAXSIZE,5)
          formViewModel = ViewModelProvider(this)[FormViewModel::class.java]
@@ -227,7 +225,7 @@ class TeamForm : AppCompatActivity() {
             "Fashion Show" -> fashionShowEventRoute(entry)
             "Mono Acting/Mimicry" -> mimicryEventRoute(entry)
             "Drama (Based on Short story 10 mins)" -> DramaEventRoute(entry)
-            "tshirts" -> tshirtsEventRoute(entry)
+            /*"tshirts" -> tshirtsEventRoute(entry)*/
             "stalls" -> stallEventRoute(entry)
 
         }
@@ -746,7 +744,7 @@ class TeamForm : AppCompatActivity() {
 
         })
     }
-    private fun gamingEventRoute(entry: Entries)
+   /* private fun gamingEventRoute(entry: Entries)
     {
 
         formViewModel.retService.gamingEvent(entries = entry).enqueue(object :
@@ -784,7 +782,7 @@ class TeamForm : AppCompatActivity() {
             }
 
         })
-    }
+    }*/
     private fun groupDiscussionEventRoute(entry: Entries)
     {
 
@@ -1323,7 +1321,7 @@ class TeamForm : AppCompatActivity() {
             }
         })
     }
-    private fun tshirtsEventRoute(entry: Entries)
+    /*private fun tshirtsEventRoute(entry: Entries)
     {
 
         formViewModel.retService.tshirtsEvent(entries = entry).enqueue(object :
@@ -1361,7 +1359,7 @@ class TeamForm : AppCompatActivity() {
             }
 
         })
-    }
+    }*/
 
     private fun DramaEventRoute(entry: Entries)
     {
@@ -1416,9 +1414,9 @@ class TeamForm : AppCompatActivity() {
                 when(response.code())
                 {
                     200-> {
-                        SweetAlertDialog(this@TeamForm, SweetAlertDialog.SUCCESS_TYPE)
-                            .setTitleText("Great!")
-                            .setContentText(response.body()?.message.toString())
+                        SweetAlertDialog(this@TeamForm, SweetAlertDialog.WARNING_TYPE)
+                            .setTitleText("!!NOTICE!!")
+                            .setContentText("REGISTRATION FOR FOOD STALL HAS TO BE DONE OFFLINE")
                             .show()
                     }
                     400-> {

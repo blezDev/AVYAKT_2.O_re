@@ -51,7 +51,7 @@ interface UserAPI {
 
     //  Non Tech Events
     @POST("/gaming")
-    fun gamingEvent(@Body entries: Entries) : retrofit2.Call<EntriesStatus>
+    fun gamingEvent(@Body entries: GameEntries) : retrofit2.Call<EntriesStatus>
     @POST("/group-discussion")
     fun groupDiscussionEvent(@Body entries: Entries) : retrofit2.Call<EntriesStatus>
     @POST("/craft-making")
@@ -85,7 +85,7 @@ interface UserAPI {
     @POST("/drama")
     fun dramaEvent(@Body entries: Entries) : retrofit2.Call<EntriesStatus>
     @POST("/tshirts")
-    fun tshirtsEvent(@Body entries: Entries) : retrofit2.Call<EntriesStatus>
+    fun tshirtsEvent(@Body entries: TshirtsEntries) : retrofit2.Call<EntriesStatus>
     @POST("/stall")
     fun stallEvent(@Body entries: Entries) : retrofit2.Call<EntriesStatus>
 

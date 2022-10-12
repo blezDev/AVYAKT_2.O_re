@@ -19,6 +19,25 @@
         tools:replace="android:icon"
         tools:targetApi="31">
         <activity
+            android:name=".presentation.Forms.TshirtActivity"
+            android:exported="false"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+
+        </activity>
+        <activity
+            android:name=".presentation.Forms.GameHostActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+
+
+        </activity>
+        <activity
             android:name=".presentation.Forgot.Forgot"
             android:exported="false"
             android:screenOrientation="portrait">
@@ -28,7 +47,7 @@
         </activity>
         <activity
             android:name=".presentation.Forms.TeamForm"
-            android:exported="true"
+            android:exported="false"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.app.lib_name"
@@ -57,32 +76,32 @@
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-
         </activity>
         <activity
             android:name=".presentation.signup.SignUp"
             android:exported="false"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".presentation.login.Login"
             android:exported="false"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".presentation.MainActivity"
             android:exported="true"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
+            <meta-data
+                android:name="preloaded_fonts"
+                android:resource="@array/preloaded_fonts" />
         </activity>
 
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
+
+
     </application>
 
 </manifest>

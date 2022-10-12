@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_game_graph"
+    app:startDestination="@id/soloForm_Gaming_Fragment">
+
+    <fragment
+        android:id="@+id/soloForm_Gaming_Fragment"
+        android:name="com.example.avyakt2o.presentation.gaming.SoloForm_Gaming_Fragment"
+        android:label="fragment_solo_form__gaming_"
+        tools:layout="@layout/fragment_solo_form__gaming_" >
+    </fragment>
+    <fragment
+        android:id="@+id/teamForm_GamingFragment"
+        android:name="com.example.avyakt2o.presentation.gaming.TeamForm_GamingFragment"
+        android:label="fragment_team_form__gaming"
+        tools:layout="@layout/fragment_team_form__gaming" >
+
+    </fragment>
+
+
+</navigation>

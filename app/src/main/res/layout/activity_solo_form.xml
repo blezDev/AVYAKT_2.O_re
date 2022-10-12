@@ -110,7 +110,7 @@
         tools:layout_editor_absoluteX="6dp">
 
         <TextView
-            android:id="@+id/instructionText_SOLO"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

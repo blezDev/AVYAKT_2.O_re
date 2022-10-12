@@ -28,13 +28,14 @@ import com.example.avyakt2o.data.Auth
 import com.example.avyakt2o.data.RegisterRecycleView
 import com.example.avyakt2o.data.ShowEvent
 import com.example.avyakt2o.databinding.FragmentHomeBinding
+import com.example.avyakt2o.presentation.Forms.GameHostActivity
 import com.example.avyakt2o.presentation.Forms.SoloForm
 import com.example.avyakt2o.presentation.Forms.TeamForm
+import com.example.avyakt2o.presentation.Forms.TshirtActivity
 import com.example.avyakt2o.utils.Constants.EVENT_NAME
 import com.example.avyakt2o.utils.Constants.EVENT_TYPE
 import com.example.avyakt2o.utils.Constants.MAXSIZE
 import com.example.avyakt2o.utils.Constants.MINSIZE
-import com.example.avyakt2o.utils.Constants.TEAM_SIZE
 import com.example.avyakt2o.utils.TokenManager
 import retrofit2.Call
 import retrofit2.Callback
@@ -126,7 +127,7 @@ class HomeFragment : Fragment() {
 
     }
 
-    private fun routeTo(EventType : String,EventName : String)
+    private fun routeTo(EventType: String, EventName: String)
     {
         when(EventType)
         {
@@ -143,7 +144,7 @@ class HomeFragment : Fragment() {
             "Guest talks" -> formType(0,EventType,EventName,1,5)
             "Innovative Idea Poster Presentation" -> formType(0,EventType,EventName,1,5)
             "Quiz" -> formType(0,EventType,EventName,1,5)
-            "Gaming" -> formType(1,EventType,EventName,1,5)
+            "Gaming" -> formType(2,EventType,EventName,1,5)
             "Group Discussion" -> formType(0,EventType,EventName,2,5)
             "Craft Making. (Based on all recyclable items)" -> formType(0,EventType,EventName,1,5)
             "Treasure Hunt" -> formType(1,EventType,EventName,1,5)
@@ -159,7 +160,7 @@ class HomeFragment : Fragment() {
             "Fashion Show" -> formType(0,EventType,EventName,1,5)
             "Mono Acting/Mimicry" -> formType(1,EventType,EventName,1,5)
             "Drama (Based on Short story 10 mins)" -> formType(1,EventType,EventName,1,5)
-            "tshirts"->formType(0,EventType,EventName,1,5)
+            "tshirts"->formType(3,EventType,EventName,1,5)
             "stalls"->formType(1,EventType,EventName,1,5)
 
 
@@ -188,22 +189,34 @@ class HomeFragment : Fragment() {
         return false
     }
 
+
+
     private fun formType(formType : Int, EventType: String,EventName: String, minSize : Int,maxSize :Int)
     {
-        if(formType == 1)
-        {
-            val intent = Intent(requireContext(),TeamForm::class.java)
-            intent.putExtra(EVENT_TYPE,EventType)
-            intent.putExtra(EVENT_NAME,EventName)
-            intent.putExtra(MINSIZE,minSize)
-            intent.putExtra(MAXSIZE,maxSize)
-            requireContext().startActivity(intent)
-        }
-        else{
-            val intent = Intent(requireContext(),SoloForm::class.java)
-            intent.putExtra(EVENT_TYPE,EventType)
-            intent.putExtra(EVENT_NAME,EventName)
-            requireContext().startActivity(intent)
+        when(formType) {
+            1 -> {
+                val intent = Intent(requireContext(), TeamForm::class.java)
+                intent.putExtra(EVENT_TYPE, EventType)
+                intent.putExtra(EVENT_NAME, EventName)
+                intent.putExtra(MINSIZE, minSize)
+                intent.putExtra(MAXSIZE, maxSize)
+                requireContext().startActivity(intent)
+            }
+            2 ->{
+                val intent = Intent(requireContext(), GameHostActivity::class.java)
+                requireContext().startActivity(intent)
+            }
+            3->{
+                val intent = Intent(requireContext(), TshirtActivity::class.java)
+                intent.putExtra(EVENT_NAME, EventName)
+                requireContext().startActivity(intent)
+            }
+            0 -> {
+                val intent = Intent(requireContext(), SoloForm::class.java)
+                intent.putExtra(EVENT_TYPE, EventType)
+                intent.putExtra(EVENT_NAME, EventName)
+                requireContext().startActivity(intent)
+            }
         }
 
     }

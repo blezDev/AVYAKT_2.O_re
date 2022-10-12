@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/formback"
+        tools:context=".presentation.Forms.TshirtActivity">
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout_gameSolo1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/aldrich"
+                android:text="Shirt Details"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/memberName_gameSolo1"
+                android:layout_width="375dp"
+                android:layout_height="54dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@color/trans"
+                android:ems="10"
+                android:hint="Name"
+                android:inputType="textPersonName"
+                android:paddingStart="20dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/glass_purple"
+                tools:ignore="RtlSymmetry" />
+
+            <EditText
+                android:id="@+id/memberRoll_gameSolo1"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="200dp"
+                android:background="@color/trans"
+                android:ems="10"
+                android:hint="Roll No."
+                android:inputType="textPersonName"
+                android:paddingLeft="20dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/glass_purple" />
+
+            <EditText
+                android:id="@+id/memberEmail_gameSolo1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@color/trans"
+                android:ems="10"
+                android:hint="Official Mail"
+                android:inputType="textEmailAddress"
+                android:minHeight="48dp"
+                android:paddingLeft="20dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/glass_purple" />
+
+            <EditText
+                android:id="@+id/memberPhone_gameSolo1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@color/trans"
+                android:ems="10"
+                android:hint="Phone Number"
+                android:inputType="phone"
+                android:minHeight="48dp"
+                android:paddingLeft="20dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/glass_purple" />
+
+            <Spinner
+                android:id="@+id/op_gameType1"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/input_border"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.666"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/btnVerifySolo_gameSolo1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="140dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="140dp"
+                android:background="@drawable/formbtn"
+                android:text="Register"
+                android:textColor="@color/glass_purple" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

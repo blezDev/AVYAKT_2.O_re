@@ -104,7 +104,7 @@ class SoloForm : AppCompatActivity() {
             "Guest talks" -> guestTalksEventRoute(entry)
             "Innovative Idea Poster Presentation" -> innovativeIdeaPosterPresentationEventRoute(entry)
             "Quiz" -> quizEventRoute(entry)
-          /*  "Gaming" -> gamingEventRoute(entry)*/
+         /*   "Gaming" -> gamingEventRoute(entry)*/
             "Group Discussion" -> groupDiscussionEventRoute(entry)
             "Craft Making. (Based on all recyclable items)" -> craftMakingEventRoute(entry)
             "Treasure Hunt" ->treasureHuntEventRoute(entry)
@@ -120,8 +120,8 @@ class SoloForm : AppCompatActivity() {
             "Fashion Show" -> fashionShowEventRoute(entry)
             "Mono Acting/Mimicry" -> mimicryEventRoute(entry)
             "Drama (Based on Short story 10 mins)" -> dramaEventRoute(entry)
-            "tshirts" -> tshirtsEventRoute(entry)
-            "Stall" ->stallEventRoute(entry)
+           /* "tshirts" -> *//*tshirtsEventRoute(entry)*/
+            "stalls" ->stallEventRoute(entry)
 
         }
     }
@@ -622,7 +622,7 @@ class SoloForm : AppCompatActivity() {
 
         })
     }
-    private fun gamingEventRoute(entry: Entries)
+   /* private fun gamingEventRoute(entry: Entries)
     {
 
         formViewModel.retService.gamingEvent(entries = entry).enqueue(object :Callback<EntriesStatus>
@@ -659,7 +659,7 @@ class SoloForm : AppCompatActivity() {
             }
 
         })
-    }
+    }*/
     private fun groupDiscussionEventRoute(entry: Entries)
     {
 
@@ -1184,7 +1184,7 @@ class SoloForm : AppCompatActivity() {
             }
         })
     }
-    private fun tshirtsEventRoute(entry: Entries)
+  /*  private fun tshirtsEventRoute(entry: Entries)
     {
 
         formViewModel.retService.tshirtsEvent(entries = entry).enqueue(object :Callback<EntriesStatus>
@@ -1222,7 +1222,7 @@ class SoloForm : AppCompatActivity() {
 
         })
     }
-
+*/
     private fun dramaEventRoute(entry: Entries)
     {
 

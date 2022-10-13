@@ -54,10 +54,11 @@
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPagerImageSlider"
-            android:layout_width="410dp"
-            android:layout_height="345dp"
+            android:layout_width="409dp"
+            android:layout_height="329dp"
             android:paddingStart="80dp"
             android:paddingEnd="80dp"
+            android:layout_marginTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"

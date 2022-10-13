@@ -81,6 +81,7 @@
             android:layout_marginRight="20dp"
             android:background="@color/trans"
             android:ems="10"
+            android:maxLength="10"
             android:textColor="@color/white"
             android:hint="Phone Number"
             android:inputType="phone"

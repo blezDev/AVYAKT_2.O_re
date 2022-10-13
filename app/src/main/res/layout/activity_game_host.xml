@@ -10,6 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/darkgray"
         tools:context=".presentation.Forms.GameHostActivity">
 
         <Spinner
@@ -17,9 +18,10 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_margin="2dp"
+            android:textColor="@color/white"
             android:layout_marginTop="2dp"
-            android:layout_marginBottom="1dp"
-            android:background="@drawable/input_border"
+            android:contextClickable="false"
+            android:textDirection="firstStrongRtl"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.666"
             app:layout_constraintStart_toStartOf="parent"

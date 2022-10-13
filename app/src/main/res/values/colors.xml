@@ -26,4 +26,6 @@
     <color name="orange">#FFA500</color>
     <color name="red">#FF0000</color>
     <color name="trans">#0FFDEFEF</color>
+    <color name="darkgray">#3a3b3c</color>
+    <color name="skin">#ffd5d5</color>
 </resources>

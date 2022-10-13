@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.avyakt2o">
+    package="com.gietu.avyakt2o">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -19,7 +19,7 @@
         tools:replace="android:icon"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.sars.SarsHostActivity"
+            android:name="com.gietu.avyakt2o.presentation.sars.SarsHostActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <meta-data
@@ -28,7 +28,7 @@
 
         </activity>
         <activity
-            android:name=".presentation.Forms.TshirtActivity"
+            android:name="com.gietu.avyakt2o.presentation.Forms.TshirtActivity"
             android:exported="false"
             android:screenOrientation="portrait">
             <meta-data
@@ -36,7 +36,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".presentation.Forms.GameHostActivity"
+            android:name="com.gietu.avyakt2o.presentation.Forms.GameHostActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <meta-data
@@ -44,7 +44,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".presentation.Forgot.Forgot"
+            android:name="com.gietu.avyakt2o.presentation.Forgot.Forgot"
             android:exported="false"
             android:screenOrientation="portrait">
             <meta-data
@@ -52,7 +52,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".presentation.Forms.TeamForm"
+            android:name="com.gietu.avyakt2o.presentation.Forms.TeamForm"
             android:exported="false"
             android:screenOrientation="portrait">
             <meta-data
@@ -60,7 +60,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".presentation.Forms.SoloForm"
+            android:name="com.gietu.avyakt2o.presentation.Forms.SoloForm"
             android:exported="true"
             android:screenOrientation="portrait">
             <meta-data
@@ -68,7 +68,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".presentation.HostActivity"
+            android:name="com.gietu.avyakt2o.presentation.HostActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <meta-data
@@ -76,7 +76,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".presentation.otp.OtpActivity"
+            android:name="com.gietu.avyakt2o.presentation.otp.OtpActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <meta-data
@@ -84,15 +84,15 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".presentation.signup.SignUp"
+            android:name="com.gietu.avyakt2o.presentation.signup.SignUp"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".presentation.login.Login"
+            android:name="com.gietu.avyakt2o.presentation.login.Login"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".presentation.MainActivity"
+            android:name="com.gietu.avyakt2o.presentation.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>

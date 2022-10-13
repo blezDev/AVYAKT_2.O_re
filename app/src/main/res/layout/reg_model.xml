@@ -9,7 +9,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="400dp"
         android:layout_margin="10dp"
         android:elevation="20dp"
         android:background="@drawable/circular_curve"
@@ -37,7 +37,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout2"
                 android:layout_width="match_parent"
-                android:layout_height="124dp"
+                android:layout_height="150dp"
                 android:background= "@drawable/reback"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +52,7 @@
                     android:layout_marginTop="16dp"
                     android:textAlignment="textStart"
                     android:textColor="@color/white"
-                    android:textSize="22sp"
+                    android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="Valorant"/>
@@ -70,7 +70,7 @@
                     app:layout_constraintHorizontal_bias="0.056"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/ProgramName"
-                    app:layout_constraintVertical_bias="0.300" />
+                    app:layout_constraintVertical_bias="0.200" />
 
                 <TextView
                     android:id="@+id/coordinatorName"
@@ -118,13 +118,15 @@
 
                 <FrameLayout
                     android:id="@+id/frameLayout2"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_margin="6dp"
+                    android:padding="1dp"
                     android:background="@drawable/regrecyclebtn"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/ProgramName">
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1">
 
                     <Button
                         android:id="@+id/btn_regForm"

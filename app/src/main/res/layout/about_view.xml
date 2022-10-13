@@ -31,10 +31,11 @@
 
         <TextView
             android:id="@+id/descriptionText"
-            android:layout_width="257dp"
+            android:layout_width="0dp"
             android:layout_height="70dp"
             android:gravity="center"
-            android:textColor="@color/black"
+
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/profileImage"
@@ -54,7 +55,7 @@
 
             <ImageButton
                 android:id="@+id/githubImg"
-                android:layout_width="48dp"
+                android:layout_width="40dp"
                 android:layout_height="48dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
@@ -62,7 +63,8 @@
                 android:clickable="true"
                 android:contentDescription="@string/github"
                 android:scaleType="fitCenter"
-                android:src="@drawable/github" />
+                android:src="@drawable/giticon"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <ImageButton
                 android:id="@+id/instagramImg"
@@ -94,7 +96,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
             app:layout_constraintEnd_toEndOf="parent"

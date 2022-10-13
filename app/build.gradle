@@ -9,7 +9,7 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.avyakt2o"
+        applicationId "com.gietu.avyakt2o"
         minSdk 26
         targetSdk 33
         versionCode 1

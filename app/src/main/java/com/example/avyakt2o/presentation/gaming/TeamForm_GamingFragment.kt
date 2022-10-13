@@ -45,7 +45,10 @@ class TeamForm_GamingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getAlertTeam()
+        val sarList = arrayOf("Robo Soccer","Taskmaster","AquaRobo","Line Follower")
+        val gameList = arrayOf("FIFA 19","NFS","Valorant","COD","Modern Warfare","PUBG")
         var MAX_SIZE = 0
+        var MIN_SIZE = 0
         var eventName = ""
         val nameList = ArrayList<String>()
         val emailList = ArrayList<String>()
@@ -71,7 +74,45 @@ class TeamForm_GamingFragment : Fragment() {
                 MAX_SIZE = 4
                 eventName = "PUBG"
             }
+            "ROBO_SOCCER"->{
+                MAX_SIZE = 4
+                MIN_SIZE = 2
+                eventName = "Robo Soccer"
+            }
+            "TASKMASTER"->{
+                MAX_SIZE = 4
+                MIN_SIZE = 2
+                eventName = "Taskmaster"
+            }
+            "AQUAROBO"->{
+                MAX_SIZE = 4
+                MIN_SIZE = 2
+                eventName = "AquaRobo"
+            }
+            "LINE_FOLLOWER"->{
+                MAX_SIZE = 4
+                MIN_SIZE = 2
+                eventName = "Line Follower"
+            }
         }
+        when(eventName)
+        {
+            in gameList ->{
+                    SweetAlertDialog(requireContext(),SweetAlertDialog.WARNING_TYPE)
+                        .setTitleText("!!NOTICE!!")
+                        .setContentText("Games:\n" + "Solo- RS 20\n" + "Group- RS 100\n" + "Location- CSE ground floor\n" + "Time:5PM-7PM")
+                        .show()
+            }
+            in sarList ->{
+                SweetAlertDialog(requireContext(),SweetAlertDialog.WARNING_TYPE)
+                    .setTitleText("!!NOTICE!!")
+                    .setContentText("Robotics:\n" + "RS 200\n" + "Location- CSE ground floor\n" + "Time:5PM-7PM")
+                    .show()
+
+            }
+        }
+
+
 
 
         binding.FormRecycle1.layoutManager = LinearLayoutManager(requireContext())
@@ -115,25 +156,74 @@ class TeamForm_GamingFragment : Fragment() {
                         .setContentText("THIS IS A GROUP EVENT.\n Team name is necessary along with team members details.")
                         .show()
 
-                }else if(nameListSub.size < (MAX_SIZE))
+                }else if( eventName in gameList && nameListSub.size < (MAX_SIZE))
                 {
                     SweetAlertDialog(requireContext(),SweetAlertDialog.WARNING_TYPE)
                         .setTitleText("WARNING!!")
                         .setContentText("THIS IS A GROUP EVENT of ${MAX_SIZE} participation.")
                         .show()
                 }
+                else if( eventName in sarList &&  nameListSub.size < (MIN_SIZE))
+                {
+                    SweetAlertDialog(requireContext(),SweetAlertDialog.WARNING_TYPE)
+                        .setTitleText("WARNING!!")
+                        .setContentText("THIS IS A GROUP EVENT of ${MIN_SIZE} of minimum participation.")
+                        .show()
+                }
 
                 else{
-                    val entry = GameEntries(
-                        token =token,name = nameList.distinct().reversed(), rollno = rollnoList.distinct().reversed(),email = emailList.distinct().reversed(),
-                        phone = phoneList.distinct().reversed(), teamName =  teamName, category = args!!, eventName = eventName, type =  "GROUP")
-                    SweetAlertDialog(requireContext(), SweetAlertDialog.NORMAL_TYPE)
-                        .setTitleText("INSTRUCTION")
-                        .setContentText(entry.toString())
-                        .show()
-                    Log.e("TAG",nameList.size.toString())
-                    Log.e("TAG",entry.toString())
-                    register(entry)
+                    when(args){
+                        "VALORANT"->{
+                            val entry = GameEntries(token =token,name = nameList.distinct().reversed(), rollno = rollnoList.distinct().reversed(),email = emailList.distinct().reversed(),
+                                phone = phoneList.distinct().reversed(), teamName =  teamName, category = args!!, eventName = eventName, type =  "GROUP")
+
+                           Log.e("TAG",entry.toString())
+
+                            register(entry)
+                        }
+                        "COD"->{
+                            val entry = GameEntries(token =token,name = nameList.distinct().reversed(), rollno = rollnoList.distinct().reversed(),email = emailList.distinct().reversed(),
+                                phone = phoneList.distinct().reversed(), teamName =  teamName, category = args!!, eventName = eventName, type =  "GROUP")
+                            register(entry)
+                        }
+                        "MODERN_WARFARE"->{
+                            val entry = GameEntries(token =token,name = nameList.distinct().reversed(), rollno = rollnoList.distinct().reversed(),email = emailList.distinct().reversed(),
+                                phone = phoneList.distinct().reversed(), teamName =  teamName, category = args!!, eventName = eventName, type =  "GROUP")
+                            register(entry)
+                        }
+                        "PUBG"->{
+                            val entry = GameEntries(token =token,name = nameList.distinct().reversed(), rollno = rollnoList.distinct().reversed(),email = emailList.distinct().reversed(),
+                                phone = phoneList.distinct().reversed(), teamName =  teamName, category = args!!, eventName = eventName, type =  "GROUP")
+                            register(entry)
+                        }
+                        "ROBO_SOCCER"->{
+                            val entry = GameEntries(token =token,name = nameList.distinct().reversed(), rollno = rollnoList.distinct().reversed(),email = emailList.distinct().reversed(),
+                                phone = phoneList.distinct().reversed(), teamName =  teamName, category = args!!, eventName = eventName, type =  "GROUP")
+
+                            sarsRegister(entry)
+                        }
+                        "TASKMASTER"->{
+                            val entry = GameEntries(token =token,name = nameList.distinct().reversed(), rollno = rollnoList.distinct().reversed(),email = emailList.distinct().reversed(),
+                                phone = phoneList.distinct().reversed(), teamName =  teamName, category = args!!, eventName = eventName, type =  "GROUP")
+                            sarsRegister(entry)
+
+                        }
+                        "AQUAROBO"->{
+                            val entry = GameEntries(token =token,name = nameList.distinct().reversed(), rollno = rollnoList.distinct().reversed(),email = emailList.distinct().reversed(),
+                                phone = phoneList.distinct().reversed(), teamName =  teamName, category = args!!, eventName = eventName, type =  "GROUP")
+                            sarsRegister(entry)
+                        }
+                        "LINE_FOLLOWER"->{
+                            val entry = GameEntries(token =token,name = nameList.distinct().reversed(), rollno = rollnoList.distinct().reversed(),email = emailList.distinct().reversed(),
+                                phone = phoneList.distinct().reversed(), teamName =  teamName, category = args!!, eventName = eventName, type =  "GROUP")
+                            sarsRegister(entry)
+
+                        }
+                    }
+
+
+
+
                 }
             }
         }
@@ -173,6 +263,43 @@ class TeamForm_GamingFragment : Fragment() {
             .setContentText(getString(R.string.instruction_TEAM))
             .show()
     }
+    private fun sarsRegister(entry : GameEntries){
+        formViewModel.retService.roboticsEvent(entry).enqueue(object : Callback<EntriesStatus>{
+            override fun onResponse(call: Call<EntriesStatus>, response: Response<EntriesStatus>) {
+                when(response.code())
+                {
+                    200->{
+                        SweetAlertDialog(requireContext(),SweetAlertDialog.SUCCESS_TYPE)
+                            .setTitleText("🎉")
+                            .setContentText("Registration successfull!!")
+                            .setConfirmClickListener {
+                                val intent = Intent(requireContext(),HostActivity::class.java)
+                                requireContext().startActivity(intent)
+                            }
+                            .show()
+                    }
+                    400->
+                    {
+                        SweetAlertDialog(requireContext(),SweetAlertDialog.WARNING_TYPE)
+                            .setTitleText("WARNING")
+                            .setContentText("Team name already exist.")
+                            .show()
+                    }
+                    500->{
+                        SweetAlertDialog(requireContext(),SweetAlertDialog.ERROR_TYPE)
+                            .setTitleText("WARNING")
+                            .setContentText("some error occured")
+                            .show()
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<EntriesStatus>, t: Throwable) {
+                Toast.makeText(requireContext(),"Something went wrong",Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
 
 
     private fun register(entry : GameEntries)

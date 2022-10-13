@@ -32,6 +32,7 @@ import com.example.avyakt2o.presentation.Forms.GameHostActivity
 import com.example.avyakt2o.presentation.Forms.SoloForm
 import com.example.avyakt2o.presentation.Forms.TeamForm
 import com.example.avyakt2o.presentation.Forms.TshirtActivity
+import com.example.avyakt2o.presentation.sars.SarsHostActivity
 import com.example.avyakt2o.utils.Constants.EVENT_NAME
 import com.example.avyakt2o.utils.Constants.EVENT_TYPE
 import com.example.avyakt2o.utils.Constants.MAXSIZE
@@ -92,6 +93,7 @@ class HomeFragment : Fragment() {
         recyclerView = view.findViewById(R.id.regList)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
+
         /* regList = ArrayList()
 
         for(i in 1..10)
@@ -138,7 +140,7 @@ class HomeFragment : Fragment() {
             "Code Debugging. (Cyber Security)" -> formType(1,EventType,EventName,1,5)
             "Web puzzle. (Web eye)" -> formType(1,EventType,EventName,1,5)
             "Poster Making Competition" -> formType(0,EventType,EventName,0,5)
-            "Robotics EVENT. (Robo soccer, Taskmaster, AquaRobo, Line follower). (SARS)" -> formType(1,EventType,EventName,3,4)
+            "Robotics EVENT. (Robo soccer, Taskmaster, AquaRobo, Line follower). (SARS)" -> formType(4,EventType,EventName,3,4)
             "Workshop" -> formType(1,EventType,EventName,1,3)
             "Idea Presentation Event" -> formType(0,EventType,EventName,1,5)
             "Guest talks" -> formType(0,EventType,EventName,1,5)
@@ -208,6 +210,11 @@ class HomeFragment : Fragment() {
             }
             3->{
                 val intent = Intent(requireContext(), TshirtActivity::class.java)
+                intent.putExtra(EVENT_NAME, EventName)
+                requireContext().startActivity(intent)
+            }
+            4->{
+                val intent = Intent(requireContext(), SarsHostActivity::class.java)
                 intent.putExtra(EVENT_NAME, EventName)
                 requireContext().startActivity(intent)
             }

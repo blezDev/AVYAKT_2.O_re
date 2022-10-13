@@ -1,5 +1,6 @@
 package com.example.avyakt2o.presentation.Forms
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -10,6 +11,7 @@ import com.example.avyakt2o.R
 import com.example.avyakt2o.data.EntriesStatus
 import com.example.avyakt2o.data.TshirtsEntries
 import com.example.avyakt2o.databinding.ActivityTshirtBinding
+import com.example.avyakt2o.presentation.HostActivity
 import com.example.avyakt2o.utils.Constants.EVENT_NAME
 import com.example.avyakt2o.utils.TokenManager
 import retrofit2.Call
@@ -30,6 +32,10 @@ class TshirtActivity : AppCompatActivity() {
         binding.opGameType1.adapter =  ArrayAdapter(this,android.R.layout.simple_list_item_1,options)
         tokenManager = TokenManager(applicationContext)
         val token = tokenManager.getToken()!!
+        SweetAlertDialog(this@TshirtActivity,SweetAlertDialog.WARNING_TYPE)
+            .setTitleText("!!NOTICE!!")
+            .setContentText("AFTER REGISTRATION\n" + "PAY FOR TSHIRT AT\n" + "Location- CSE ground floor\n" + "Time:5PM-7PM")
+            .show()
 
         binding.btnVerifySoloGameSolo1.setOnClickListener {
             val name = binding.memberNameGameSolo1.text.toString()
@@ -63,10 +69,18 @@ class TshirtActivity : AppCompatActivity() {
                         when(response.code())
                         {
                             200->{
-                                SweetAlertDialog(this@TshirtActivity,SweetAlertDialog.NORMAL_TYPE)
-                                    .setTitleText("INSTRUCTIONS")
-
-                                    .setContentText(getString(R.string.instruction_SOLO_EVENT))
+                                SweetAlertDialog(this@TshirtActivity,SweetAlertDialog.SUCCESS_TYPE)
+                                    .setTitleText("DONE😎")
+                                    .setContentText("Successfully registered. Don't forget to pay for tshirt ASAF")
+                                    .setConfirmClickListener { val intent = Intent(this@TshirtActivity,HostActivity::class.java)
+                                     startActivity(intent)
+                                    finish()}
+                                    .show()
+                            }
+                            else ->{
+                                SweetAlertDialog(this@TshirtActivity,SweetAlertDialog.WARNING_TYPE)
+                                    .setTitleText("WARNING")
+                                    .setContentText("Something went wrong. Pls try later!!")
                                     .show()
                             }
 

@@ -37,7 +37,7 @@ interface UserAPI {
     @POST("/poster-making-competition")
     fun postermakingEvent(@Body entries: Entries) : retrofit2.Call<EntriesStatus>
     @POST("/robotics-event")
-    fun roboticsEvent(@Body entries: Entries) : retrofit2.Call<EntriesStatus>
+    fun roboticsEvent(@Body entries: GameEntries) : retrofit2.Call<EntriesStatus>
     @POST("/idea-representation")
     fun ideapresentationEvent(@Body entries: Entries) : retrofit2.Call<EntriesStatus>
     @POST("/workshop")

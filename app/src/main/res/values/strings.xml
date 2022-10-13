@@ -41,8 +41,10 @@
 </string>
     <string name="instruction_SOLO_EVENT">
         ->	Enter the Details and Click Register.\n\n-> on successful registration, confirmation mail will sent to your mail.
-
     </string>
+
+
+
     <string name="instruction_team_game">
          ->	Entry Fee FOR SOLO:RS 20 \n\n
         ->	Entry Fee FOR TEAM:RS 100 \n\n
@@ -53,10 +55,10 @@
 
     </string>
     <string name="instruction_tshirt">
-
-        Mobile no-9777527505
-        Location -seminar hall (3rd floor ,CSE DEPARTMENT)
-        Time- evening
+        For Payment\n
+        Mobile no-9777527505\n
+        Location -seminar hall (3rd floor ,CSE DEPARTMENT)\n
+        Time- evening\n
 
     </string>
 

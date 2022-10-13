@@ -14,6 +14,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.avyakt2o.R
 import com.example.avyakt2o.data.Entries
 import com.example.avyakt2o.data.EntriesStatus
+import com.example.avyakt2o.data.GameEntries
 import com.example.avyakt2o.presentation.HostActivity
 import com.example.avyakt2o.utils.Constants.EVENT_NAME
 import com.example.avyakt2o.utils.Constants.EVENT_TYPE
@@ -98,7 +99,7 @@ class SoloForm : AppCompatActivity() {
             "Code Debugging. (Cyber Security)" -> codedebuggingEventRoute(entry)
             "Web puzzle. (Web eye)" -> webpuzzleEventRoute(entry)
             "Poster Making Competition" ->postermakingEventRoute(entry)
-            "Robotics EVENT. (Robo soccer, Taskmaster, AquaRobo, Line follower). (SARS)" -> roboticsEventRoute(entry)
+          /*  "Robotics EVENT. (Robo soccer, Taskmaster, AquaRobo, Line follower). (SARS)" -> roboticsEventRoute(entry)*/
             "Idea Presentation Event" ->ideapresentationEventRoute(entry)
             "Workshop" -> workshopEventRoute(entry)
             "Guest talks" -> guestTalksEventRoute(entry)
@@ -397,7 +398,7 @@ class SoloForm : AppCompatActivity() {
             }
         })
     }
-    private fun roboticsEventRoute(entry: Entries)
+   /* private fun roboticsEventRoute(entry: GameEntries)
     {
 
         formViewModel.retService.roboticsEvent(entries = entry).enqueue(object :Callback<EntriesStatus>
@@ -433,7 +434,7 @@ class SoloForm : AppCompatActivity() {
                 Toast.makeText(this@SoloForm,"Something went wrong.Try again",Toast.LENGTH_SHORT).show()
             }
         })
-    }
+    }*/
     private fun ideapresentationEventRoute(entry: Entries)
     {
         formViewModel.retService.ideapresentationEvent(entries = entry).enqueue(object :Callback<EntriesStatus>

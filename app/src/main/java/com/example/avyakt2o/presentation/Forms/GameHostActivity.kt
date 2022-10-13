@@ -40,8 +40,6 @@ class GameHostActivity : AppCompatActivity() {
                         val bundle = bundleOf("key" to "FIFA")
                         navController?.navigate(R.id.soloForm_Gaming_Fragment,bundle)
 
-
-
                     }
                     1->{
 

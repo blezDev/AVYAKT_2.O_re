@@ -2,6 +2,7 @@ package com.example.avyakt2o.presentation.gaming
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -66,6 +67,7 @@ class SoloForm_Gaming_Fragment : Fragment() {
             }
             else
             {
+
                 formViewModel.retService.gamingEvent(GameEntries(
                     token = token,
                     name = listOf(name),
@@ -91,7 +93,6 @@ class SoloForm_Gaming_Fragment : Fragment() {
                                    .setConfirmClickListener {
                                        val intent = Intent(requireContext(), HostActivity::class.java)
                                        requireContext().startActivity(intent)
-
                                    }
                                    .show()
                                getAlertTeam()
@@ -117,9 +118,9 @@ class SoloForm_Gaming_Fragment : Fragment() {
     }
     private  fun getAlertTeam()
     {
-        SweetAlertDialog(requireContext(),SweetAlertDialog.NORMAL_TYPE)
-            .setTitleText("INSTRUCTIONS")
-            .setContentText(getString(R.string.instruction_solo_game))
+        SweetAlertDialog(requireContext(),SweetAlertDialog.WARNING_TYPE)
+            .setTitleText("!!NOTICE!!")
+            .setContentText("Games:\n" + "Solo- RS 20\n" + "Group- RS 100\n" + "Location- CSE ground floor\n" + "Time:5PM-7PM")
             .show()
     }
 }

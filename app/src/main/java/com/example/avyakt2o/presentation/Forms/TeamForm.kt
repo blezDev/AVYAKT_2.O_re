@@ -50,6 +50,13 @@ class TeamForm : AppCompatActivity() {
          EventType = intent.getStringExtra(Constants.EVENT_TYPE).toString()
          EventName = intent.getStringExtra(Constants.EVENT_NAME).toString()
 
+        if(EventType == "stalls"){
+            SweetAlertDialog(this@TeamForm, SweetAlertDialog.WARNING_TYPE)
+                .setTitleText("!!NOTICE!!")
+                .setContentText("Food stall\n" + "Veg-1000\n" + "Non veg-1500\n" + "Location- CSE ground floor\n" + "Time:5PM-7PM")
+                .show()
+        }
+
         val nameList = ArrayList<String>()
         val emailList = ArrayList<String>()
         val rollnoList = ArrayList<String>()
@@ -203,7 +210,7 @@ class TeamForm : AppCompatActivity() {
             "Code Debugging. (Cyber Security)" -> codedebuggingEventRoute(entry)
             "Web puzzle. (Web eye)" -> webpuzzleEventRoute(entry)
             "Poster Making Competition" ->postermakingEventRoute(entry)
-            "Robotics EVENT. (Robo soccer, Taskmaster, AquaRobo, Line follower). (SARS)" -> roboticsEventRoute(entry)
+          /*  "Robotics EVENT. (Robo soccer, Taskmaster, AquaRobo, Line follower). (SARS)" -> roboticsEventRoute(entry)*/
             "Idea Presentation Event" ->ideapresentationEventRoute(entry)
             "Workshop" -> workshopEventRoute(entry)
             "Guest talks" -> guestTalksEventRoute(entry)
@@ -513,7 +520,7 @@ class TeamForm : AppCompatActivity() {
             }
         })
     }
-    private fun roboticsEventRoute(entry: Entries)
+    /*private fun roboticsEventRoute(entry: Entries)
     {
 
         formViewModel.retService.roboticsEvent(entries = entry).enqueue(object :
@@ -550,7 +557,7 @@ class TeamForm : AppCompatActivity() {
                 Toast.makeText(this@TeamForm,"Something went wrong.Try again",Toast.LENGTH_SHORT).show()
             }
         })
-    }
+    }*/
     private fun ideapresentationEventRoute(entry: Entries)
     {
         formViewModel.retService.ideapresentationEvent(entries = entry).enqueue(object :
@@ -1414,9 +1421,9 @@ class TeamForm : AppCompatActivity() {
                 when(response.code())
                 {
                     200-> {
-                        SweetAlertDialog(this@TeamForm, SweetAlertDialog.WARNING_TYPE)
+                        SweetAlertDialog(this@TeamForm, SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("!!NOTICE!!")
-                            .setContentText("REGISTRATION FOR FOOD STALL HAS TO BE DONE OFFLINE")
+                            .setContentText("Food stall\n" + "Veg-1000\n" + "Non veg-1500\n" + "Location- CSE ground floor\n" + "Time:5PM-7PM")
                             .show()
                     }
                     400-> {

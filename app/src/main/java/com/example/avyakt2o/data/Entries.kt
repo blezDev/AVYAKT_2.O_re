@@ -44,6 +44,32 @@ data class GameEntries(
     @SerializedName("type")
     val type : String
 )
+
+
+data class SarEntries(
+    /*  @SerializedName("email")
+      val auth_email : String,*/
+    @SerializedName("token")
+    val token : String,
+    @SerializedName("name")
+    val name : List<String>,
+    @SerializedName("email")
+    val email : List<String>,
+    @SerializedName("rollno")
+    val rollno : List<String>,
+    @SerializedName("teamName")
+    val teamName : Any?,
+    @SerializedName("eventName")
+    val eventName : String,
+    @SerializedName("phone")
+    val phone : List<String>,
+    @SerializedName("category")
+    val category : String,
+    @SerializedName("type")
+    val type : String
+)
+
+
 data class TshirtsEntries(
     /*  @SerializedName("email")
       val auth_email : String,*/

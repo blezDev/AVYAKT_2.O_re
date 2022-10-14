@@ -12,6 +12,7 @@ import com.gietu.avyakt2o.R
 
 class TeamFormAdapter(private val TeamList: ArrayList<com.gietu.avyakt2o.data.TeamForm>, val context: Context):RecyclerView.Adapter<TeamFormAdapter.TeamViewHolder>()  {
     var onItemClick : ((com.gietu.avyakt2o.data.TeamForm) -> Unit) ? = null
+    private val emailPattern = "[a-zA-Z0-9._-]+@giet+.+edu+"
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TeamViewHolder {
 
@@ -35,7 +36,7 @@ class TeamFormAdapter(private val TeamList: ArrayList<com.gietu.avyakt2o.data.Te
             val phone = holder.Phone.text.toString()
 
 
-            if(name.isNotEmpty() && email.isNotEmpty() && roll.isNotEmpty() && phone.isNotEmpty()) {
+            if(name.isNotEmpty() && email.isNotEmpty() && roll.isNotEmpty() && phone.isNotEmpty() && validateEmail(email)) {
 
                 onItemClick?.invoke(
                     com.gietu.avyakt2o.data.TeamForm(
@@ -72,6 +73,13 @@ class TeamFormAdapter(private val TeamList: ArrayList<com.gietu.avyakt2o.data.Te
 
     override fun getItemCount(): Int {
         return TeamList.size
+    }
+    fun validateEmail(email:String) : Boolean {
+        if (email.matches(emailPattern.toRegex())) {
+            return true
+        } else {
+            return false
+        }
     }
 
 

@@ -27,6 +27,7 @@ import retrofit2.Response
 
 class TeamForm_GamingFragment : Fragment() {
     private lateinit var binding:FragmentTeamFormGamingBinding
+    private val emailPattern = "[a-zA-Z0-9._-]+@giet+.+edu+"
 
     private lateinit var FormReg : ArrayList<com.gietu.avyakt2o.data.TeamForm>
     private lateinit var regFormAdapter : TeamFormAdapter
@@ -138,7 +139,7 @@ class TeamForm_GamingFragment : Fragment() {
 
             }
         binding.SubmitFormBtn1.setOnClickListener {
-            if(binding.Name2.text.isNullOrEmpty() || binding.email2.text.isNullOrEmpty() || binding.phone2.text.isNullOrEmpty() || binding.roll2.text.isNullOrEmpty() || binding.teamName2.text.isNullOrEmpty()) {
+            if(binding.Name2.text.isNullOrEmpty() || !validateEmail(binding.email2.text.toString()) || binding.phone2.text.length != 10 || binding.phone2.text.isNullOrEmpty()  || binding.roll2.text.isNullOrEmpty() || binding.teamName2.text.isNullOrEmpty()  ) {
                 SweetAlertDialog(requireContext(),SweetAlertDialog.WARNING_TYPE)
                     .setTitleText("WARNING!!")
                     .setContentText("FILL OUT DETAILS")
@@ -254,6 +255,14 @@ class TeamForm_GamingFragment : Fragment() {
 
 
     }
+    fun validateEmail(email:String) : Boolean {
+        if (email.matches(emailPattern.toRegex())) {
+            return true
+        } else {
+            return false
+        }
+    }
+
     fun addNewItem(index : Int ?=0  , teamForm : com.gietu.avyakt2o.data.TeamForm ){
         FormReg.add(0,teamForm)
         regFormAdapter.notifyDataSetChanged()

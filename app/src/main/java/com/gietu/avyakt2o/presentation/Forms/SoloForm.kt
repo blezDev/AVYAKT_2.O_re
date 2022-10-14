@@ -9,9 +9,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import cn.pedant.SweetAlert.SweetAlertDialog
-
-
 import com.gietu.avyakt2o.R
+
+
+
 import com.gietu.avyakt2o.data.Entries
 import com.gietu.avyakt2o.data.EntriesStatus
 import com.gietu.avyakt2o.presentation.HostActivity
@@ -31,6 +32,7 @@ class SoloForm : AppCompatActivity() {
     private  lateinit var  btnVerifySolo: Button
     private lateinit var formViewModel :FormViewModel
     private lateinit var tokenManager: TokenManager
+    private val emailPattern = "[a-zA-Z0-9._-]+@giet+.+edu+"
     private lateinit var instructionBrn_SOLO : Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,7 +56,7 @@ class SoloForm : AppCompatActivity() {
 
         btnVerifySolo.setOnClickListener {
 
-            if(memberEmail.text.isNotEmpty() && memberName.text.isNotEmpty() && memberRoll.text.isNotEmpty() && memberPhone.text.isNotEmpty())
+            if(memberEmail.text.isNotEmpty() && memberName.text.isNotEmpty() && memberRoll.text.isNotEmpty() && memberPhone.text.isNotEmpty() && validateEmail(memberEmail.text.toString()))
             {
                 Log.e("TAG","Enter the solo form + $EventType")
                 val name = listOf(memberName.text.toString())
@@ -125,9 +127,30 @@ class SoloForm : AppCompatActivity() {
 
         }
     }
+    fun validateEmail(email:String) : Boolean {
+        if (email.matches(emailPattern.toRegex())) {
+            return true
+        } else {
+            return false
+        }
+    }
     private fun goToHome(){
         val intent = Intent(this@SoloForm,HostActivity::class.java)
         startActivity(intent)
+    }
+    private fun validatePhone(phone : String) : Boolean
+    {
+        if(phone.length == 10)
+        {
+            return true
+        }
+        else  {
+            SweetAlertDialog(this,SweetAlertDialog.WARNING_TYPE)
+                .setTitleText("WARNING")
+                .setContentText("ENTER CORRECT PHONE NUMBER")
+                .show()
+            return false
+        }
     }
     private fun androidRoute(entry: Entries)
     {
@@ -183,6 +206,7 @@ class SoloForm : AppCompatActivity() {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -223,6 +247,7 @@ class SoloForm : AppCompatActivity() {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -261,6 +286,7 @@ class SoloForm : AppCompatActivity() {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -299,6 +325,7 @@ class SoloForm : AppCompatActivity() {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -336,6 +363,7 @@ class SoloForm : AppCompatActivity() {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -373,6 +401,7 @@ class SoloForm : AppCompatActivity() {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -446,6 +475,7 @@ class SoloForm : AppCompatActivity() {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -483,6 +513,7 @@ class SoloForm : AppCompatActivity() {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -521,6 +552,7 @@ class SoloForm : AppCompatActivity() {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -559,6 +591,7 @@ class SoloForm : AppCompatActivity() {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -597,6 +630,7 @@ class SoloForm : AppCompatActivity() {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -673,6 +707,7 @@ class SoloForm : AppCompatActivity() {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -711,6 +746,7 @@ class SoloForm : AppCompatActivity() {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -749,6 +785,7 @@ class SoloForm : AppCompatActivity() {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -786,6 +823,7 @@ class SoloForm : AppCompatActivity() {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -824,6 +862,7 @@ class SoloForm : AppCompatActivity() {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -862,6 +901,7 @@ class SoloForm : AppCompatActivity() {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -900,6 +940,7 @@ class SoloForm : AppCompatActivity() {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -937,6 +978,7 @@ class SoloForm : AppCompatActivity() {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -975,6 +1017,7 @@ class SoloForm : AppCompatActivity() {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -1012,6 +1055,7 @@ class SoloForm : AppCompatActivity() {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -1049,6 +1093,7 @@ class SoloForm : AppCompatActivity() {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -1086,6 +1131,7 @@ class SoloForm : AppCompatActivity() {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -1123,6 +1169,7 @@ class SoloForm : AppCompatActivity() {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -1160,6 +1207,7 @@ class SoloForm : AppCompatActivity() {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -1236,6 +1284,7 @@ class SoloForm : AppCompatActivity() {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -1277,6 +1326,7 @@ class SoloForm : AppCompatActivity() {
                         SweetAlertDialog(this@SoloForm,SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {

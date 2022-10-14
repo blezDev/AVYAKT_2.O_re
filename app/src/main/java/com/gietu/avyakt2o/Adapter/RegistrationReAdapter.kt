@@ -15,6 +15,7 @@ class RegistrationReAdapter(private val formList: List<EventList>, private val c
       var onItemClick : ((EventList)-> Unit) ?= null
 
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RegViewHolder {
         binding = DataBindingUtil.inflate(LayoutInflater.from(parent.context),R.layout.reg_model, parent, false)
         return RegViewHolder(binding)
@@ -40,5 +41,6 @@ class RegistrationReAdapter(private val formList: List<EventList>, private val c
 
 
     inner class RegViewHolder(binding : RegModelBinding) : RecyclerView.ViewHolder(binding.root)
+
 
 }

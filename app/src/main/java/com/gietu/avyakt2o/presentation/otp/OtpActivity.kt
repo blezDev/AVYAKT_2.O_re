@@ -180,7 +180,7 @@ class OtpActivity : AppCompatActivity() {
 
                 binding.btnVerify.setOnClickListener {
                     val otp = getOTP()
-                    if (email.toString().isEmpty()  && otp == 0)
+                    if (email.toString().isEmpty()  || otp == 0)
                     {
                         SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
                             .setTitleText("😖")

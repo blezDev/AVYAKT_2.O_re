@@ -26,6 +26,7 @@ class SoloForm_Gaming_Fragment : Fragment() {
     private lateinit var binding : FragmentSoloFormGamingBinding
     private lateinit var formViewModel : FormViewModel
     private lateinit var tokenManager: TokenManager
+    private val emailPattern = "[a-zA-Z0-9._-]+@giet+.+edu+"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -57,7 +58,7 @@ class SoloForm_Gaming_Fragment : Fragment() {
             val rollno = binding.memberRollGameSolo.text.toString()
             val email = binding.memberEmailGameSolo.text.toString()
             val phone = binding.memberPhoneGameSolo.text.toString()
-            if(name.isBlank() || rollno.isEmpty() || email.isEmpty() || phone.isEmpty())
+            if(name.isBlank() || rollno.isEmpty() || email.isEmpty() || phone.isEmpty() ||  !validateEmail(email))
             {
                 SweetAlertDialog(requireContext(),SweetAlertDialog.WARNING_TYPE)
                     .setTitleText("Empty Fields")
@@ -114,6 +115,13 @@ class SoloForm_Gaming_Fragment : Fragment() {
                 })
             }
 
+        }
+    }
+    fun validateEmail(email:String) : Boolean {
+        if (email.matches(emailPattern.toRegex())) {
+            return true
+        } else {
+            return false
         }
     }
     private  fun getAlertTeam()

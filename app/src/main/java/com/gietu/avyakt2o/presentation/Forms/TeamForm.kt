@@ -12,8 +12,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cn.pedant.SweetAlert.SweetAlertDialog
-import com.gietu.avyakt2o.Adapter.TeamFormAdapter
 import com.gietu.avyakt2o.R
+import com.gietu.avyakt2o.Adapter.TeamFormAdapter
+
 import com.gietu.avyakt2o.data.Entries
 import com.gietu.avyakt2o.data.EntriesStatus
 import com.gietu.avyakt2o.databinding.ActivityTeamFormBinding
@@ -88,6 +89,7 @@ class TeamForm : AppCompatActivity() {
         FormRecycle.adapter = regFormAdapter
         regFormAdapter.onItemClick =
         {
+
                 val name = it.name
                 val rollno = it.roll.trim()
                 val email = it.mail
@@ -103,7 +105,7 @@ class TeamForm : AppCompatActivity() {
 
 
      binding.SubmitFormBtn.setOnClickListener {
-            if(binding.Name1.text.isNullOrBlank() && binding.email1.text.isNullOrBlank() && binding.phone1.text.isNullOrBlank() && binding.roll1.text.isNullOrBlank() ) {
+            if(binding.Name1.text.isNullOrBlank() || binding.email1.text.isNullOrBlank() || binding.phone1.text.isNullOrBlank() || !validateEmail(binding.email1.text.toString())|| binding.roll1.text.isNullOrBlank()) {
                 SweetAlertDialog(this,SweetAlertDialog.WARNING_TYPE)
                     .setTitleText("WARNING!!")
                     .setContentText("FILL OUT DETAILS")
@@ -302,6 +304,7 @@ class TeamForm : AppCompatActivity() {
                         SweetAlertDialog(this@TeamForm, SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -342,6 +345,7 @@ class TeamForm : AppCompatActivity() {
                         SweetAlertDialog(this@TeamForm, SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -381,6 +385,7 @@ class TeamForm : AppCompatActivity() {
                         SweetAlertDialog(this@TeamForm, SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -420,6 +425,7 @@ class TeamForm : AppCompatActivity() {
                         SweetAlertDialog(this@TeamForm, SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -458,6 +464,7 @@ class TeamForm : AppCompatActivity() {
                         SweetAlertDialog(this@TeamForm, SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -496,6 +503,7 @@ class TeamForm : AppCompatActivity() {
                         SweetAlertDialog(this@TeamForm, SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -571,6 +579,7 @@ class TeamForm : AppCompatActivity() {
                         SweetAlertDialog(this@TeamForm, SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -609,6 +618,7 @@ class TeamForm : AppCompatActivity() {
                         SweetAlertDialog(this@TeamForm, SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -648,6 +658,7 @@ class TeamForm : AppCompatActivity() {
                         SweetAlertDialog(this@TeamForm, SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -687,6 +698,7 @@ class TeamForm : AppCompatActivity() {
                         SweetAlertDialog(this@TeamForm, SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -726,6 +738,7 @@ class TeamForm : AppCompatActivity() {
                         SweetAlertDialog(this@TeamForm, SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -804,6 +817,7 @@ class TeamForm : AppCompatActivity() {
                         SweetAlertDialog(this@TeamForm, SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -843,6 +857,7 @@ class TeamForm : AppCompatActivity() {
                         SweetAlertDialog(this@TeamForm, SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -882,6 +897,7 @@ class TeamForm : AppCompatActivity() {
                         SweetAlertDialog(this@TeamForm, SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -920,6 +936,7 @@ class TeamForm : AppCompatActivity() {
                         SweetAlertDialog(this@TeamForm, SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -959,6 +976,7 @@ class TeamForm : AppCompatActivity() {
                         SweetAlertDialog(this@TeamForm, SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -998,6 +1016,7 @@ class TeamForm : AppCompatActivity() {
                         SweetAlertDialog(this@TeamForm, SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -1037,6 +1056,7 @@ class TeamForm : AppCompatActivity() {
                         SweetAlertDialog(this@TeamForm, SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -1075,6 +1095,7 @@ class TeamForm : AppCompatActivity() {
                         SweetAlertDialog(this@TeamForm, SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -1114,6 +1135,7 @@ class TeamForm : AppCompatActivity() {
                         SweetAlertDialog(this@TeamForm, SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -1152,6 +1174,7 @@ class TeamForm : AppCompatActivity() {
                         SweetAlertDialog(this@TeamForm, SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -1190,6 +1213,7 @@ class TeamForm : AppCompatActivity() {
                         SweetAlertDialog(this@TeamForm, SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -1228,6 +1252,7 @@ class TeamForm : AppCompatActivity() {
                         SweetAlertDialog(this@TeamForm, SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -1266,6 +1291,7 @@ class TeamForm : AppCompatActivity() {
                         SweetAlertDialog(this@TeamForm, SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -1304,6 +1330,7 @@ class TeamForm : AppCompatActivity() {
                         SweetAlertDialog(this@TeamForm, SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -1382,6 +1409,7 @@ class TeamForm : AppCompatActivity() {
                         SweetAlertDialog(this@TeamForm, SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("Great!")
                             .setContentText(response.body()?.message.toString())
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -1424,6 +1452,7 @@ class TeamForm : AppCompatActivity() {
                         SweetAlertDialog(this@TeamForm, SweetAlertDialog.SUCCESS_TYPE)
                             .setTitleText("!!NOTICE!!")
                             .setContentText("Food stall\n" + "Veg-1000\n" + "Non veg-1500\n" + "Location- CSE ground floor\n" + "Time:5PM-7PM")
+                            .setConfirmClickListener { goToHome() }
                             .show()
                     }
                     400-> {
@@ -1449,17 +1478,11 @@ class TeamForm : AppCompatActivity() {
         })
     }
 
-    fun validateEmail(email:String) {
+    fun validateEmail(email:String) : Boolean {
         if (email.matches(emailPattern.toRegex())) {
-            Toast.makeText(
-                applicationContext, "Valid email address",
-                Toast.LENGTH_SHORT
-            ).show()
+            return true
         } else {
-            Toast.makeText(
-                applicationContext, "Invalid email address",
-                Toast.LENGTH_SHORT
-            ).show()
+            return false
         }
     }
 

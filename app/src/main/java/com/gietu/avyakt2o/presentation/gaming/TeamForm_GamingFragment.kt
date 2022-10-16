@@ -159,14 +159,14 @@ class TeamForm_GamingFragment : Fragment() {
                         .setContentText("THIS IS A GROUP EVENT.\n Team name is necessary along with team members details.")
                         .show()
 
-                }else if( eventName in gameList && nameListSub.size < (MAX_SIZE))
+                }else if( eventName in gameList || nameListSub.size < (MAX_SIZE))
                 {
                     SweetAlertDialog(requireContext(),SweetAlertDialog.WARNING_TYPE)
                         .setTitleText("WARNING!!")
                         .setContentText("THIS IS A GROUP EVENT of ${MAX_SIZE} participation.")
                         .show()
                 }
-                else if( eventName in sarList &&  nameListSub.size < (MIN_SIZE))
+                else if( eventName in sarList || nameListSub.size < (MIN_SIZE))
                 {
                     SweetAlertDialog(requireContext(),SweetAlertDialog.WARNING_TYPE)
                         .setTitleText("WARNING!!")

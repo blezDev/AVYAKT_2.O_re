@@ -94,7 +94,7 @@ class TshirtActivity : AppCompatActivity() {
                     }
                 })
 
-                Toast.makeText(this, entry.toString(), Toast.LENGTH_SHORT).show()
+
 
 
 

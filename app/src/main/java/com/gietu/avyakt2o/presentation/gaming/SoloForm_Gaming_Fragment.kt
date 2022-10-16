@@ -58,7 +58,7 @@ class SoloForm_Gaming_Fragment : Fragment() {
             val rollno = binding.memberRollGameSolo.text.toString()
             val email = binding.memberEmailGameSolo.text.toString()
             val phone = binding.memberPhoneGameSolo.text.toString()
-            if(name.isBlank() || rollno.isEmpty() || email.isEmpty() || phone.isEmpty() ||  !validateEmail(email))
+            if(name.isBlank() || rollno.isEmpty() || email.isEmpty() || phone.isEmpty() || !validateEmail(email))
             {
                 SweetAlertDialog(requireContext(),SweetAlertDialog.WARNING_TYPE)
                     .setTitleText("Empty Fields")

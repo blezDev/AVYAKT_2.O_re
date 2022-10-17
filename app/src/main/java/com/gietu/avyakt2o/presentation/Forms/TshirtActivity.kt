@@ -23,6 +23,7 @@ class TshirtActivity : AppCompatActivity() {
     private lateinit var binding : ActivityTshirtBinding
     private lateinit var formViewModel : FormViewModel
     private lateinit var tokenManager: TokenManager
+    private val emailPattern = "[a-zA-Z0-9._-]+@giet+.+edu+"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,7 +45,7 @@ class TshirtActivity : AppCompatActivity() {
             val rollno = binding.memberRollGameSolo1.text.toString()
             val email = binding.memberEmailGameSolo1.text.toString()
             val phone = binding.memberPhoneGameSolo1.text.toString()
-            if(name.isBlank() || rollno.isEmpty() || email.isEmpty() || phone.isEmpty())
+            if(name.isBlank() || rollno.isEmpty() || email.isEmpty() || phone.isEmpty() || !validateEmail(email = email))
             {
                 SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
                     .setTitleText("Empty Fields")
@@ -101,4 +102,12 @@ class TshirtActivity : AppCompatActivity() {
             }
         }
     }
+    fun validateEmail(email:String) : Boolean {
+        if (email.matches(emailPattern.toRegex())) {
+            return true
+        } else {
+            return false
+        }
+    }
+
 }

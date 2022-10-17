@@ -154,7 +154,7 @@ class HomeFragment : Fragment() {
             "Gaming" -> formType(2,EventType,EventName,1,5)
             "Group Discussion" -> formType(0,EventType,EventName,2,5)
             "Craft Making. (Based on all recyclable items)" -> formType(0,EventType,EventName,1,5)
-            "Treasure Hunt" -> formType(1,EventType,EventName,2,5)
+            "Treasure Hunt" -> formType(1,EventType,EventName,2,4)
             "Rangoli. (individual)" -> formType(0,EventType,EventName,1,5)
             "Musical Chair" -> formType(0,EventType,EventName,1,5)
             "Eureka (PDCS CLUB)" -> formType(0,EventType,EventName,1,5)
